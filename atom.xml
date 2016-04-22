@@ -202,60 +202,6 @@
   </entry>
   
   <entry>
-    <title>关于微阅读</title>
-    <link href="http://yoursite.com/2015/11/22/%E5%85%B3%E4%BA%8E%E5%BE%AE%E9%98%85%E8%AF%BB/"/>
-    <id>http://yoursite.com/2015/11/22/关于微阅读/</id>
-    <published>2015-11-22T12:18:43.000Z</published>
-    <updated>2016-04-22T04:02:02.000Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;《微阅读》&quot;&gt;&lt;a href=&quot;#《微阅读》&quot; class=&quot;headerlink&quot; title=&quot;《微阅读》&quot;&gt;&lt;/a&gt;《微阅读》&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt; 数据来源于微信订阅号、公共号，用户在不订阅和关注的情况下，阅读优质文章   。&lt;br&gt;文章按照热度和时间排序，在没有强烈指向性时，为被动阅读提供便利。  &lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;特色&quot;&gt;&lt;a href=&quot;#特色&quot; class=&quot;headerlink&quot; title=&quot;特色&quot;&gt;&lt;/a&gt;特色&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;优质内容（来源微信订阅号、公共号）&lt;/li&gt;
-&lt;li&gt;界面简洁、交互简单&lt;/li&gt;
-&lt;li&gt;登录后，收藏的文章保存在服务器端，更换设备不会丢失&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;要求&quot;&gt;&lt;a href=&quot;#要求&quot; class=&quot;headerlink&quot; title=&quot;要求&quot;&gt;&lt;/a&gt;要求&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;先有一台iOS的设备（iPad，iPhone）&lt;/li&gt;
-&lt;li&gt;支持iOS8以上设备&lt;/li&gt;
-&lt;li&gt;由于制作仓促，还有很多不完善的地方，so…帮忙多提意见。谢！&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;遗留和已发现问题&quot;&gt;&lt;a href=&quot;#遗留和已发现问题&quot; class=&quot;headerlink&quot; title=&quot;遗留和已发现问题&quot;&gt;&lt;/a&gt;遗留和已发现问题&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;页码跳转&lt;/li&gt;
-&lt;li&gt;首页网络失败后 重新刷新 （暂无）&lt;/li&gt;
-&lt;li&gt;去除html 无关元素，优化阅读环境&lt;/li&gt;
-&lt;li&gt;因为 服务器SDK的问题，暂时去除 用户系统，无法提供和用户相关的功能（登录、收藏等）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;下版本更新功能&quot;&gt;&lt;a href=&quot;#下版本更新功能&quot; class=&quot;headerlink&quot; title=&quot;下版本更新功能&quot;&gt;&lt;/a&gt;下版本更新功能&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;首页背景图&lt;ul&gt;
-&lt;li&gt;图来源于bing 每日美图，所以会加入保存背景图到本地&lt;/li&gt;
-&lt;li&gt;从相册选择图片做背景图，提供部分定制话  &lt;/li&gt;
-&lt;li&gt;主题色调 自定义&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
-&lt;li&gt;文章的已读状态，现版本只能记录当次打开程序时，已阅读的文章。&lt;/li&gt;
-&lt;li&gt;UI 还有很多地方需要改善。本人程序员出身，不要报太大希望我能把UI改的多好多好 O(∩_∩)O~~&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;p&gt; 重要的话说好几遍。如果大家有什么建议的话，请发邮件到&lt;br&gt; &lt;code&gt;huang1988519@126.com&lt;/code&gt; ,&lt;br&gt; 如果看到的话会及时反馈的。谢谢大家&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;《微阅读》&quot;&gt;&lt;a href=&quot;#《微阅读》&quot; class=&quot;headerlink&quot; title=&quot;《微阅读》&quot;&gt;&lt;/a&gt;《微阅读》&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt; 数据来源于微信订阅号、公共号，用户在不订阅和关注的情况下，阅读优质文章   。&lt;br&gt;文
-    
-    </summary>
-    
-    
-      <category term="App" scheme="http://yoursite.com/tags/App/"/>
-    
-  </entry>
-  
-  <entry>
     <title>读后感</title>
     <link href="http://yoursite.com/2015/11/06/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
     <id>http://yoursite.com/2015/11/06/读后感/</id>
