@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="油条撸码">
-    <title>用Swift创建Singleton 的几种方式 - 油条撸码</title>
+    <title>Swift 自定义运算符 - 油条撸码</title>
     <meta name="author" content="huang1988519">
     
         <meta name="keywords" content="hexo,ios,xcode,apple,">
@@ -15,19 +15,25 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="单例，作为日常中出场率较高的设计模式，还是值得单独一篇文章来列举下常见的创建方式。
-Objective-C 下，一般是这么创建 单例12345678910111213141516@interface Persion : NSObject@end@implementation Persion+ (instancetype)sharedInstance &amp;#123;    static Persion">
+    <meta name="description" content="Swift 自定义运算符网上无意中看到一个开源库  Arrow。官方文档  参考
+通过重写运算符&amp;lt;–, &amp;lt;==，来解析json。例如：   
+123identifier &amp;lt;-- json[&quot;id&quot;]name &amp;lt;-- json[&quot;name&quot;]stats &amp;lt;== json[&quot;stats&quot;]
+之前，我们也许是这样的。123456789if let id = json[&quot;id">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="用Swift创建Singleton 的几种方式">
-<meta property="og:url" content="http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/index.html">
+<meta property="og:title" content="Swift 自定义运算符">
+<meta property="og:url" content="http://yoursite.com/2016/02/18/Swift-自定义运算符/index.html">
 <meta property="og:site_name" content="油条撸码">
-<meta property="og:description" content="单例，作为日常中出场率较高的设计模式，还是值得单独一篇文章来列举下常见的创建方式。
-Objective-C 下，一般是这么创建 单例12345678910111213141516@interface Persion : NSObject@end@implementation Persion+ (instancetype)sharedInstance &amp;#123;    static Persion">
+<meta property="og:description" content="Swift 自定义运算符网上无意中看到一个开源库  Arrow。官方文档  参考
+通过重写运算符&amp;lt;–, &amp;lt;==，来解析json。例如：   
+123identifier &amp;lt;-- json[&quot;id&quot;]name &amp;lt;-- json[&quot;name&quot;]stats &amp;lt;== json[&quot;stats&quot;]
+之前，我们也许是这样的。123456789if let id = json[&quot;id">
 <meta property="og:updated_time" content="2016-04-22T04:02:02.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用Swift创建Singleton 的几种方式">
-<meta name="twitter:description" content="单例，作为日常中出场率较高的设计模式，还是值得单独一篇文章来列举下常见的创建方式。
-Objective-C 下，一般是这么创建 单例12345678910111213141516@interface Persion : NSObject@end@implementation Persion+ (instancetype)sharedInstance &amp;#123;    static Persion">
+<meta name="twitter:title" content="Swift 自定义运算符">
+<meta name="twitter:description" content="Swift 自定义运算符网上无意中看到一个开源库  Arrow。官方文档  参考
+通过重写运算符&amp;lt;–, &amp;lt;==，来解析json。例如：   
+123identifier &amp;lt;-- json[&quot;id&quot;]name &amp;lt;-- json[&quot;name&quot;]stats &amp;lt;== json[&quot;stats&quot;]
+之前，我们也许是这样的。123456789if let id = json[&quot;id">
     
     
         
@@ -192,13 +198,13 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            用Swift创建Singleton 的几种方式
+            Swift 自定义运算符
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Tue Dec 29 2015 19:47:01 GMT+0800">
+    <time itemprop="datePublished" content="Thu Feb 18 2016 00:36:24 GMT+0800">
 	
-		    29 十二月 2015
+		    18 二月 2016
     	
     </time>
     
@@ -207,23 +213,36 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>单例，作为日常中出场率较高的设计模式，还是值得单独一篇文章来列举下常见的创建方式。</p>
-<p>Objective-C 下，一般是这么创建 单例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@interface Persion : NSObject</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation Persion</span><br><span class="line"></span><br><span class="line">+ (instancetype)sharedInstance &#123;</span><br><span class="line">    static Persion *sharedInstance = nil;</span><br><span class="line">    static dispatch_once_t onceToken;</span><br><span class="line"></span><br><span class="line">    dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">        sharedInstance = [[Persion alloc] init];</span><br><span class="line">    &#125;);</span><br><span class="line">    return sharedInstance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
-<p>在使用单例时，我们需要知道</p>
+            <h2 id="Swift-自定义运算符"><a href="#Swift-自定义运算符" class="headerlink" title="Swift 自定义运算符"></a>Swift 自定义运算符</h2><p>网上无意中看到一个开源库  <a href="https://github.com/s4cha/Arrow" target="_blank" rel="external">Arrow</a>。<br><a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/AdvancedOperators.html" target="_blank" rel="external">官方文档</a>  <a href="http://nshipster.com/swift-operators/" target="_blank" rel="external">参考</a></p>
+<p>通过重写运算符&lt;–, &lt;==，来解析json。例如：   </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">identifier &lt;-- json[<span class="string">"id"</span>]</span><br><span class="line">name &lt;-- json[<span class="string">"name"</span>]</span><br><span class="line">stats &lt;== json[<span class="string">"stats"</span>]</span><br></pre></td></tr></table></figure>
+<p>之前，我们也许是这样的。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> id = json[<span class="string">"id"</span>] <span class="keyword">as</span>? <span class="type">Int</span> &#123;</span><br><span class="line">  identifier = id</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> n = json[<span class="string">"name"</span>] <span class="keyword">as</span>? <span class="type">String</span> &#123;</span><br><span class="line">  name = n</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> s = <span class="type">Stats</span>(json:json) &#123;</span><br><span class="line">  stats = s</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Swift 的到来，引起了iOS圈内新一轮热潮，据说国外80%的项目已经再用swift写，而个人对国内的了解，很多大的公司还是很保守。BAT也不例外。<br>来看看swift其中一个令人沸腾的特性之一，定义 运算符。（很多语言早已经有了这个特性）。</p>
+<p>我们自定义运算符，尽量避免已有运算符： * + - &amp; | ~ 等等。</p>
+<h5 id="现在Arrow中对运算符的使用："><a href="#现在Arrow中对运算符的使用：" class="headerlink" title="现在Arrow中对运算符的使用："></a>现在Arrow中对运算符的使用：</h5><ol>
+<li><p>要在swift中创建一个运算符，首先需要声明  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">infix operator &lt;-- &#123;infix-operator-attributes­o&#125;</span><br><span class="line">//infix-operator-attributes­o 可选</span><br></pre></td></tr></table></figure>
 <ul>
-<li>单例是全局唯一。 在程序的生命周期中，不管在何处使用 ，都应该是同一个对象。</li>
-<li>确保单例的唯一性，需要是初始化方法私有化。这样的话，需要我们重载类的所有初始化方法</li>
-<li>也因为第一条，在生命周期中只有唯一一个，就意味着我们需要确保单例的线程安全。</li>
+<li><strong>infix</strong>  中缀。有左、右参数</li>
+<li><strong>operator</strong>  保留字。</li>
+<li><strong>&lt;—</strong> 操作符本身。  </li>
 </ul>
-<p>— 不多说，下面列举几种swift 单例的创建方法</p>
-<h4 id="先来一段比较丑的创建方式"><a href="#先来一段比较丑的创建方式" class="headerlink" title="先来一段比较丑的创建方式"></a>先来一段比较丑的创建方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class TheOneAndOnlyPerson &#123;</span><br><span class="line">    class var sharedInstance: TheOneAndOnlyPerson &#123;</span><br><span class="line">        struct Static &#123;</span><br><span class="line">            static var onceToken: dispatch_once_t = 0</span><br><span class="line">            static var instance: TheOneAndOnlyPerson? = nil</span><br><span class="line">        &#125;</span><br><span class="line">        dispatch_once(&amp;Static.onceToken) &#123;</span><br><span class="line">            Static.instance = TheOneAndOnlyPerson()</span><br><span class="line">        &#125;</span><br><span class="line">        return Static.instance!</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这有点违背了swift的简洁风格了吧~~pass（反正不推荐）</p>
-<h4 id="结构体创建方式"><a href="#结构体创建方式" class="headerlink" title="结构体创建方式"></a>结构体创建方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class TheOneAndOnlyPerson &#123;</span><br><span class="line">    class var sharedInstance: TheOneAndOnlyPerson &#123;</span><br><span class="line">        struct Static &#123;</span><br><span class="line">            static let instance = TheOneAndOnlyPerson()</span><br><span class="line">        &#125;</span><br><span class="line">        return Static.instance</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="全局创建-方式"><a href="#全局创建-方式" class="headerlink" title="全局创建 方式"></a>全局创建 方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">private let sharedPerson = TheOneAndOnlyPerson()</span><br><span class="line">class TheOneAndOnlyPerson &#123;</span><br><span class="line">    class var sharedInstance: TheOneAndOnlyPerson &#123;</span><br><span class="line">        return sharedPerson</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="一行创建单例-推荐"><a href="#一行创建单例-推荐" class="headerlink" title="一行创建单例 (推荐)"></a>一行创建单例 (推荐)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class TheOneAndOnlyPerson &#123;</span><br><span class="line">    static let sharedInstance = TheOneAndOnlyPerson()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>不要忘了重载类的初始化方法</p>
+<p>{}中可以定义一些运算符的描述。</p>
 </blockquote>
+<p>如果这种方式勾起了你的兴趣，咱们在看他的实现。</p>
+</li>
+<li><p>现在运算符已经被系统识别，运算符具体实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> public func &lt;-- &lt;T&gt;(inout left: T, right: AnyObject?) &#123;</span><br><span class="line">    if let v: T = right as? T &#123;</span><br><span class="line">        left = v</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>应该可以看出来和普通的func没什么区别。不过 <strong>inout</strong>这个是高亮，我就查了下文档。<strong>inout</strong> 放在参数的前边，表示 left这个参数在scope中可以被修改。 这样我就通过Model的属性的类型T来进行对应的转换，而不用显式的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if let id = json[&quot;id&quot;] as? Int &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>来进行判断并赋值。</p>
+<p>好了，完了。简单的使用就完了，Arrow中还有一些指定类型的重载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> public func &lt;-- (inout left: NSDate, right: AnyObject?) &#123;</span><br><span class="line">    if let s = right as? String, let date = dateFormater.dateFromString(s)  &#123;</span><br><span class="line">        left = date</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过 AnyObject 转换字符串，字符串在转换到 NSDate。延伸后，我们可以根据自己的业务，来把服务器数据进行定制后来赋值。</p>
+<p>赞！</p>
+</li>
+</ol>
 
             
         </div>
@@ -233,7 +252,7 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">Теги: </span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/Swift-iOS/">Swift,iOS</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/swift-operator-ios-Swift/">swift operator,ios,Swift</a>
 
             </div>
         
@@ -242,7 +261,7 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/16/2016-New-Race/"  data-tooltip="2016 New Race ">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/19/tips/"  data-tooltip="tips">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">Пред.</span>
@@ -250,7 +269,7 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/06/读后感/" data-tooltip="读后感">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/16/2016-New-Race/" data-tooltip="2016 New Race ">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">След.</span>
                     <i class="fa fa-angle-right"></i>
@@ -265,17 +284,17 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/02/18/Swift-自定义运算符/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/02/18/Swift-自定义运算符/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/02/18/Swift-自定义运算符/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -313,7 +332,7 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/16/2016-New-Race/"  data-tooltip="2016 New Race ">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/19/tips/"  data-tooltip="tips">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">Пред.</span>
@@ -321,7 +340,7 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/06/读后感/" data-tooltip="读后感">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/16/2016-New-Race/" data-tooltip="2016 New Race ">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">След.</span>
                     <i class="fa fa-angle-right"></i>
@@ -336,17 +355,17 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/02/18/Swift-自定义运算符/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/02/18/Swift-自定义运算符/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/02/18/Swift-自定义运算符/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -366,17 +385,17 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
                 <div id="share-options-bar" class="share-options-bar" data-behavior="4">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/02/18/Swift-自定义运算符/">
                 <i class="fa fa-google-plus"></i><span class="">Поделиться в Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/02/18/Swift-自定义运算符/">
                 <i class="fa fa-facebook-official"></i><span>Поделиться в Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/02/18/Swift-自定义运算符/">
                 <i class="fa fa-twitter"></i><span>Поделиться в Twitter</span>
             </a>
         </li>
