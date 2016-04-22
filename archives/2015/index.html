@@ -1,0 +1,626 @@
+
+<!DOCTYPE html>
+<html lang="null">
+    
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="油条">
+    <title>Archives: 2015 - 油条</title>
+    <meta name="author" content="huang1988519">
+    
+    
+    
+        <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
+    
+    <meta name="description" content="混迹于iOS红海">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="油条">
+<meta property="og:url" content="http://yoursite.com/archives/2015/index.html">
+<meta property="og:site_name" content="油条">
+<meta property="og:description" content="混迹于iOS红海">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="油条">
+<meta name="twitter:description" content="混迹于iOS红海">
+    
+    
+        
+    
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/style-27vrduj1jopliavvnzi7ibndpmbvg7lzo4a2uswrsi4m5vwauf2qi8s1v3or.min.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+
+<header id="header" data-behavior="2">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <h1 class="header-title">
+        <a class="header-title-link" href="/ ">油条</a>
+    </h1>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+<nav id="sidebar" data-behavior="2">
+    
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/ "
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                    <span class="sidebar-button-desc">Home</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-categories"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                    <span class="sidebar-button-desc">Categories</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-tags"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                    <span class="sidebar-button-desc">Tags</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/all-archives"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                    <span class="sidebar-button-desc">Archives</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link st-search-show-outputs"
+                         href="#search"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                    <span class="sidebar-button-desc">Search</span>
+                </a>
+        </li>
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="#about"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                    <span class="sidebar-button-desc">About</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+    </ul>
+    
+        <ul class="sidebar-buttons">
+        
+            <li class="sidebar-button">
+                
+                    <a  class="sidebar-button-link "
+                         href="/atom.xml"
+                        
+                    >
+                
+                    <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+                    <span class="sidebar-button-desc">RSS</span>
+                </a>
+        </li>
+        
+    </ul>
+    
+</nav>
+
+            
+            <div id="main" data-behavior="2"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+    
+
+<section class="postShorten-group main-content-wrap">
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2015/12/29/用Swift创建Singleton-的几种方式/">
+                            用Swift创建Singleton 的几种方式
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Tue Dec 29 2015 11:47:01 GMT+0800">
+	
+		    Dec 29, 2015
+    	
+    </time>
+    
+</div>
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>单例，作为日常中出场率较高的设计模式，还是值得单独一篇文章来列举下常见的创建方式。</p>
+<p>Objective-C 下，一般是这么创建 单例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@interface Persion : NSObject</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation Persion</span><br><span class="line"></span><br><span class="line">+ (instancetype)sharedInstance &#123;</span><br><span class="line">    static Persion *sharedInstance = nil;</span><br><span class="line">    static dispatch_once_t onceToken;</span><br><span class="line"></span><br><span class="line">    dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">        sharedInstance = [[Persion alloc] init];</span><br><span class="line">    &#125;);</span><br><span class="line">    return sharedInstance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
+<p>在使用单例时，我们需要知道</p>
+<ul>
+<li>单例是全局唯一。 在程序的生命周期中，不管在何处使用 ，都应该是同一个对象。</li>
+<li>确保单例的唯一性，需要是初始化方法私有化。这样的话，需要我们重载类的所有初始化方法</li>
+<li>也因为第一条，在生命周期中只有唯一一个，就意味着我们需要确保单例的线程安全。</li>
+</ul>
+<p>— 不多说，下面列举几种swift 单例的创建方法</p>
+<h4 id="先来一段比较丑的创建方式"><a href="#先来一段比较丑的创建方式" class="headerlink" title="先来一段比较丑的创建方式"></a>先来一段比较丑的创建方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class TheOneAndOnlyPerson &#123;</span><br><span class="line">    class var sharedInstance: TheOneAndOnlyPerson &#123;</span><br><span class="line">        struct Static &#123;</span><br><span class="line">            static var onceToken: dispatch_once_t = 0</span><br><span class="line">            static var instance: TheOneAndOnlyPerson? = nil</span><br><span class="line">        &#125;</span><br><span class="line">        dispatch_once(&amp;Static.onceToken) &#123;</span><br><span class="line">            Static.instance = TheOneAndOnlyPerson()</span><br><span class="line">        &#125;</span><br><span class="line">        return Static.instance!</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这有点违背了swift的简洁风格了吧~~pass（反正不推荐）</p>
+<h4 id="结构体创建方式"><a href="#结构体创建方式" class="headerlink" title="结构体创建方式"></a>结构体创建方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class TheOneAndOnlyPerson &#123;</span><br><span class="line">    class var sharedInstance: TheOneAndOnlyPerson &#123;</span><br><span class="line">        struct Static &#123;</span><br><span class="line">            static let instance = TheOneAndOnlyPerson()</span><br><span class="line">        &#125;</span><br><span class="line">        return Static.instance</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="全局创建-方式"><a href="#全局创建-方式" class="headerlink" title="全局创建 方式"></a>全局创建 方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">private let sharedPerson = TheOneAndOnlyPerson()</span><br><span class="line">class TheOneAndOnlyPerson &#123;</span><br><span class="line">    class var sharedInstance: TheOneAndOnlyPerson &#123;</span><br><span class="line">        return sharedPerson</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="一行创建单例-推荐"><a href="#一行创建单例-推荐" class="headerlink" title="一行创建单例 (推荐)"></a>一行创建单例 (推荐)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class TheOneAndOnlyPerson &#123;</span><br><span class="line">    static let sharedInstance = TheOneAndOnlyPerson()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>不要忘了重载类的初始化方法</p>
+</blockquote>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2015/12/29/用Swift创建Singleton-的几种方式/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2015/11/22/关于微阅读/">
+                            关于微阅读
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Sun Nov 22 2015 20:18:43 GMT+0800">
+	
+		    Nov 22, 2015
+    	
+    </time>
+    
+</div>
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="《微阅读》"><a href="#《微阅读》" class="headerlink" title="《微阅读》"></a>《微阅读》</h2><blockquote>
+<p> 数据来源于微信订阅号、公共号，用户在不订阅和关注的情况下，阅读优质文章   。<br>文章按照热度和时间排序，在没有强烈指向性时，为被动阅读提供便利。  </p>
+</blockquote>
+<h2 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h2><ul>
+<li>优质内容（来源微信订阅号、公共号）</li>
+<li>界面简洁、交互简单</li>
+<li>登录后，收藏的文章保存在服务器端，更换设备不会丢失</li>
+</ul>
+<h2 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h2><ul>
+<li>先有一台iOS的设备（iPad，iPhone）</li>
+<li>支持iOS8以上设备</li>
+<li>由于制作仓促，还有很多不完善的地方，so…帮忙多提意见。谢！</li>
+</ul>
+<h2 id="遗留和已发现问题"><a href="#遗留和已发现问题" class="headerlink" title="遗留和已发现问题"></a>遗留和已发现问题</h2><ul>
+<li>页码跳转</li>
+<li>首页网络失败后 重新刷新 （暂无）</li>
+<li>去除html 无关元素，优化阅读环境</li>
+<li>因为 服务器SDK的问题，暂时去除 用户系统，无法提供和用户相关的功能（登录、收藏等）</li>
+</ul>
+<h2 id="下版本更新功能"><a href="#下版本更新功能" class="headerlink" title="下版本更新功能"></a>下版本更新功能</h2><ul>
+<li>首页背景图<ul>
+<li>图来源于bing 每日美图，所以会加入保存背景图到本地</li>
+<li>从相册选择图片做背景图，提供部分定制话  </li>
+<li>主题色调 自定义</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>文章的已读状态，现版本只能记录当次打开程序时，已阅读的文章。</li>
+<li>UI 还有很多地方需要改善。本人程序员出身，不要报太大希望我能把UI改的多好多好 O(∩_∩)O~~</li>
+</ul>
+<hr>
+<p> 重要的话说好几遍。如果大家有什么建议的话，请发邮件到<br> <code>huang1988519@126.com</code> ,<br> 如果看到的话会及时反馈的。谢谢大家</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2015/11/22/关于微阅读/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2015/11/06/读后感/">
+                            读后感
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Fri Nov 06 2015 11:31:28 GMT+0800">
+	
+		    Nov 06, 2015
+    	
+    </time>
+    
+</div>
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>日常读后小记，按照我看书的频率，估计也一年也写不了几篇读后感。<br>这些书，或技术、或文学、或营造 等等。自己很少去搜索，一般是别人推荐后，再去查看是否自己也感兴趣。</p>
+<ul>
+<li><p><a href="http://book.douban.com/subject/3688489/" target="_blank" rel="external">《异类》</a> – [美] 马尔科姆·格拉德威尔<br>  <strong> 2015-10 ~ 2015-11-5 回龙观地铁End 历时大概1个月  </strong><br>  <strong> 北京第一场雪 </strong></p>
+<blockquote>
+<p>不一样的成功启示录</p>
+</blockquote>
+<p>  从同事手中随便拿到的一本书，这本书不是我的调调。。。但是开卷有益，还是用了一个月给看完了。<br>  作者从一些很常见或者习以为常的现象中，找出名人之所以成名的原因。<br>  <strong> 例如：  </strong><br>  运动员为什么大多是 1-3月出生的人<br>  世界级别的首富 多出生于 1960 年（理科生记这种时间有点费劲，仅供参考）<br>  神通为什么最后不一定都会成功<br>  …  </p>
+<p>  如果大家有感兴趣的，可以自己读一下这本书。屌丝看这本书的时候，会发现也是一种鸡汤 。<br>  基本是从 时代、区域、几代人的家庭背景、宏观、具象 等等来分析一个人的成功。<br>  也许你会发现，你之所以没有成功，除了自己努力之外还有很多是不可抗力在起作用。此处 呵呵 。 我作为一名屌丝，建议大家看完之后，记住，成功还是离不开自身努力的。作者只是在从这个角度在分析问题，但并没有排除自身努力<br>  好吧，不写了，文采有限。自己也消化的不多。 可能之后会分享 一本国内创业者 写的 《增长黑客》营销。<br>  还有google《重新定义公司》。<br>  <strong> 《2015首雪》  </strong><br>  <img src="../../../../img/snow.jpg" alt="第一场雪"></p>
+</li>
+</ul>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2015/11/06/读后感/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2015/11/05/iOS开源项目收集/">
+                            iOS开源项目收集
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" content="Thu Nov 05 2015 15:08:16 GMT+0800">
+	
+		    Nov 05, 2015
+    	
+    </time>
+    
+</div>
+            </div>
+            
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>平时自己使用或者看过的iOS代码，收集于此，于己于人方便.</p>
+<p>项目会先在github 更新，之后迁移到github.io 上  <a href="https://github.com/huang1988519/Collector" target="_blank" rel="external">github 地址</a></p>
+<p><strong> 其他项目总结 </strong></p>
+<ul>
+<li><a href="https://github.com/Tim9Liu9/TimLiu-iOS#%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0" target="_blank" rel="external">TimLiu-iOS</a> github iOS排行榜</li>
+<li><a href="https://github.com/superleexpert/open-source-library-tags" target="_blank" rel="external">open-source-library-tags</a> 佳宾同学自己项目总结</li>
+<li><a href="https://github.com/ipader/SwiftGuide/blob/master/Featured.md" target="_blank" rel="external">SwiftGuide</a> Swift 开源项目精选</li>
+<li><a href="http://github.ibireme.com/github/list/ios/" target="_blank" rel="external">Github-iOS备忘 </a> 分类、折叠查看  开源项目总结</li>
+</ul>
+<p><strong> 目录 </strong></p>
+<h2 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h2><ul>
+<li><p>下拉刷新</p>
+<ul>
+<li><p><a href="https://github.com/CoderMJLee/MJRefresh#%E4%B8%8A%E6%8B%89%E5%88%B7%E6%96%B007-%E8%87%AA%E5%8A%A8%E5%9B%9E%E5%BC%B9%E7%9A%84%E4%B8%8A%E6%8B%8901" target="_blank" rel="external">MJRefresh</a> 国内人开发，由于还没使用过，看文档先列出来几点有点</p>
+<ul>
+<li>自定义程度高（文字，动图，heade、footer 等等）</li>
+<li>易使用</li>
+<li>中文文档，目前已经 4000 多 star</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/samvermette/SVPullToRefresh" target="_blank" rel="external">SVPullToRefresh</a> 应该算本人使用比较早的一个下拉，上拉刷新，api 较少，使用方便</p>
+</li>
+</ul>
+</li>
+<li><p>音视频播放</p>
+<ul>
+<li><p><a href="https://github.com/36Kr-Mobile/KRVideoPlayer" target="_blank" rel="external">KRVideoPlayer</a><br>类似Weico的播放器，支持竖屏模式下全屏播放。支持 pod 安装使用</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod search KRVideoPlayer</span><br></pre></td></tr></table></figure>
+<p>  使用MPMoviePlayer进行视频播放，自定义控制层 来控制视频的暂定，播放，前进后退等等</p>
+<p>  <img src="https://github.com/36Kr-Mobile/KRVideoPlayer/blob/master/kr_player.gif" alt="示例图片" title="示例图片"></p>
+</li>
+<li>下一个效果</li>
+</ul>
+</li>
+<li>图片相关  <ul>
+<li><a href="https://github.com/kean/Nuke" target="_blank" rel="external">Nuke (Swift)</a> 图片 下载、loading、缓存 的一个先进、轻量库</li>
+</ul>
+</li>
+<li>模糊效果</li>
+<li>AutoLayout</li>
+</ul>
+<h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><ul>
+<li><p>数据  </p>
+<ul>
+<li><a href="https://github.com/cobub/razor" target="_blank" rel="external">razor</a> 开源 统计平台，包含 web , ios ,Android,wp 端代码  </li>
+<li><a href="https://github.com/evgenyneu/SigmaSwiftStatistics" target="_blank" rel="external">SigmaSwiftStatistics</a> lauguage: Swift 。 数学复杂计算  </li>
+<li><p><a href="https://github.com/krzyzanowskim/CryptoSwift" target="_blank" rel="external">CryptoSwift</a> 语言：Swift 。 主流的几种加密</p>
+<ul>
+<li><p>require</p>
+<p>一个好的心情</p>
+</li>
+<li><p>功能</p>
+<p><strong> Hash </strong></p>
+<ul>
+<li>MD5</li>
+<li>SHA1</li>
+<li>SHA224</li>
+<li>SHA256</li>
+<li>SHA384</li>
+<li>SHA512</li>
+<li>CRC32 (well, kind of hash)</li>
+<li>CRC16 (well, kind of hash)</li>
+</ul>
+<p><strong> Cipher </strong></p>
+<ul>
+<li>AES-128, AES-192, AES-256</li>
+<li>ChaCha20</li>
+</ul>
+<p><strong> Message authenticators </strong></p>
+<ul>
+<li>Poly1305</li>
+<li>HMAC MD5, SHA1, SHA256</li>
+</ul>
+<p><strong> Cipher block mode </strong></p>
+<ul>
+<li>Electronic codebook (ECB)</li>
+<li>Cipher-block chaining (CBC)</li>
+<li>Cipher feedback (CFB)</li>
+<li>Counter (CTR)</li>
+</ul>
+<p><strong> Data padding </strong></p>
+<ul>
+<li>PKCS#7</li>
+</ul>
+</li>
+<li><p>为什么要用swift 再写一次在很多平台都有的功能</p>
+<p>因为我可以！  </p>
+<blockquote>
+<p>Why? Becanse I can.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><ul>
+<li>时间选择器</li>
+<li>其他选择器<ul>
+<li><a href="https://github.com/CharlinFeng/CFCityPickerVC" target="_blank" rel="external">城市列表</a> 带有当前城市，<br>热门城市，和按省分类列表</li>
+</ul>
+</li>
+</ul>
+<h2 id="教学"><a href="#教学" class="headerlink" title="教学"></a>教学</h2><ul>
+<li><p>示例</p>
+<ul>
+<li><a href="https://github.com/ashfurrow/C-41/tree/82d9359a0210b8722c48816b6914d109a2009bcc" target="_blank" rel="external">C-41</a>   这个app的功能不重要，重要的是演示了如何使用下边功能<ul>
+<li>Core Data</li>
+<li>Unit Test</li>
+<li>ReactiveCocoa</li>
+<li>Model-View-ViewModel</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/xhzengAIB/MessageDisplayKit" target="_blank" rel="external">MessageDisplayKit</a><br>一个类似微信App的IM应用，拥有发送文字、图片、语音、视频、地理位置消息，管理本地通信录、分享朋友圈、漂流交友、摇一摇和更多有趣的功能<br>支持 pod</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod &apos;MessageDisplayKi</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/xhzengAIB/LearnEnglish/raw/master/Screenshots/MessageDisplayKit.gif" alt="示例图片" title="图片"></p>
+</li>
+<li><p><a href="https://github.com/geekcompany/ResumeSample" target="_blank" rel="external">程序员简历模板</a> 程序员简历模板系列。</p>
+<ul>
+<li>PHP程序员简历模板</li>
+<li>iOS程序员简历模板</li>
+<li>Android程序员简历模板</li>
+<li>Web前端程序员简历模板</li>
+<li>Java程序员简历模板</li>
+<li>C/C++程序员简历模板</li>
+<li>NodeJS程序员简历模板</li>
+<li>架构师简历模板</li>
+<li>通用程序员简历模板</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="总有点别的爱好"><a href="#总有点别的爱好" class="headerlink" title="总有点别的爱好"></a>总有点别的爱好</h2><ul>
+<li><p>宅男</p>
+<ul>
+<li><a href="https://github.com/raawaa/jav-scrapy" target="_blank" rel="external">jav-scrapy</a><br>一个可以爬取 AV 磁力链接或影片封面的小爬虫。使用Nodejs<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://git.coding.net/raawaa/jav-scrapy.git</span><br><span class="line">$ cd jav-scrapy</span><br><span class="line">$ npm install # 安装npm包依赖</span><br><span class="line">$ npm link    # 使jav-scrapy全局可执行</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h2><ul>
+<li><p>架构设计</p>
+<ul>
+<li><p><a href="http://casatwy.com/category/blog.html" target="_blank" rel="external">博客中谈了较多架构层的干货，可以关注下</a></p>
+<ul>
+<li><a href="http://casatwy.com/iosying-yong-jia-gou-tan-kai-pian.html" target="_blank" rel="external">iOS应用架构谈 开篇</a></li>
+<li><a href="http://casatwy.com/iosying-yong-jia-gou-tan-viewceng-de-zu-zhi-he-diao-yong-fang-an.html" target="_blank" rel="external">iOS应用架构谈 view层的组织和调用方案</a></li>
+<li><a href="http://casatwy.com/iosying-yong-jia-gou-tan-wang-luo-ceng-she-ji-fang-an.html" target="_blank" rel="external">iOS应用架构谈 网络层设计方案</a></li>
+<li><a href="http://casatwy.com/iosying-yong-jia-gou-tan-ben-di-chi-jiu-hua-fang-an-ji-dong-tai-bu-shu.html" target="_blank" rel="external">iOS应用架构谈 本地持久化方案及动态部署</a></li>
+</ul>
+</li>
+<li><p><a href="http://www.jianshu.com/p/921ab32c3c71" target="_blank" rel="external">iOS大型项目开发漫谈</a> cp  个人见解总会有很多地方值得  </p>
+</li>
+<li><a href="http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/" target="_blank" rel="external">iOS 保持界面流畅的技巧</a>  专业的界面调优，下面简单列几条概要<ul>
+<li>CPU 资源消耗原因和解决方案 （分析）</li>
+<li>GPU 资源消耗原因和解决方案  （分析）</li>
+<li>AsyncDisplayKit （解决方案）</li>
+<li>微博 Demo 性能优化技巧 （示例讲解）  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>干货  </p>
+<ul>
+<li><a href="http://blog.ibireme.com/" target="_blank" rel="external">伽蓝之堂</a><br>干货之多，受益无穷。大量自己实践总结，优秀国际技术翻译引进。<strong>举例：</strong><ul>
+<li><a href="http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/" target="_blank" rel="external">iOS 保持界面流畅的技巧</a></li>
+<li><a href="http://blog.ibireme.com/2015/05/18/runloop/" target="_blank" rel="external">深入理解RunLoop</a></li>
+<li><a href="http://blog.ibireme.com/2013/08/12/color-model/" target="_blank" rel="external">颜色模型</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2015/11/05/iOS开源项目收集/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    <div class="pagination-bar">
+    <ul class="pagination">
+        
+        
+        <li class="pagination-number">page 1 of 1</li>
+    </ul>
+</div>
+
+</section>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2016 huang1988519. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+        </div>
+        
+
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <h4 id="about-card-name">huang1988519</h4>
+        
+            <h5 id="about-card-bio"><p>author.bio</p>
+</h5>
+        
+        
+            <h5 id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </h5>
+        
+        
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+    </body>
+    <!--SCRIPTS-->
+<script src="/assets/js/scrip-tu4ziscb5jrkjxubeugdgizktyuugflfq5jvgz4agzzmwifuq01g1lmq8giw.min.js"></script>
+<!--SCRIPTS END-->
+
+
+
+</html>

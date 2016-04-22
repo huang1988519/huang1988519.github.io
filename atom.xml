@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>油条</title>
+  <subtitle>iOS撸码人</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2016-04-22T04:02:02.000Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>huang1988519</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>tips</title>
+    <link href="http://yoursite.com/2016/02/19/tips/"/>
+    <id>http://yoursite.com/2016/02/19/tips/</id>
+    <published>2016-02-19T03:01:47.000Z</published>
+    <updated>2016-04-22T04:02:02.000Z</updated>
+    
+    <content type="html">&lt;ul&gt;
+&lt;li&gt;有一句话，忘了原话了，应该是在 《重新定义公司》中看到的。&lt;blockquote&gt;
+&lt;p&gt;造于富，稳于穷&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;有一句话，忘了原话了，应该是在 《重新定义公司》中看到的。&lt;blockquote&gt;
+&lt;p&gt;造于富，稳于穷&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Swift 自定义运算符</title>
+    <link href="http://yoursite.com/2016/02/17/Swift-%E8%87%AA%E5%AE%9A%E4%B9%89%E8%BF%90%E7%AE%97%E7%AC%A6/"/>
+    <id>http://yoursite.com/2016/02/17/Swift-自定义运算符/</id>
+    <published>2016-02-17T08:36:24.000Z</published>
+    <updated>2016-04-22T04:02:02.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;Swift-自定义运算符&quot;&gt;&lt;a href=&quot;#Swift-自定义运算符&quot; class=&quot;headerlink&quot; title=&quot;Swift 自定义运算符&quot;&gt;&lt;/a&gt;Swift 自定义运算符&lt;/h2&gt;&lt;p&gt;网上无意中看到一个开源库  &lt;a href=&quot;https://github.com/s4cha/Arrow&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Arrow&lt;/a&gt;。&lt;br&gt;&lt;a href=&quot;https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/AdvancedOperators.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;官方文档&lt;/a&gt;  &lt;a href=&quot;http://nshipster.com/swift-operators/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;参考&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;通过重写运算符&amp;lt;–, &amp;lt;==，来解析json。例如：   &lt;/p&gt;
+&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;identifier &amp;lt;-- json[&lt;span class=&quot;string&quot;&gt;&quot;id&quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;name &amp;lt;-- json[&lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;stats &amp;lt;== json[&lt;span class=&quot;string&quot;&gt;&quot;stats&quot;&lt;/span&gt;]&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;之前，我们也许是这样的。&lt;br&gt;&lt;figure class=&quot;highlight swift&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; id = json[&lt;span class=&quot;string&quot;&gt;&quot;id&quot;&lt;/span&gt;] &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;? &lt;span class=&quot;type&quot;&gt;Int&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  identifier = id&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; n = json[&lt;span class=&quot;string&quot;&gt;&quot;name&quot;&lt;/span&gt;] &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt;? &lt;span class=&quot;type&quot;&gt;String&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  name = n&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;let&lt;/span&gt; s = &lt;span class=&quot;type&quot;&gt;Stats&lt;/span&gt;(json:json) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;  stats = s&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;Swift 的到来，引起了iOS圈内新一轮热潮，据说国外80%的项目已经再用swift写，而个人对国内的了解，很多大的公司还是很保守。BAT也不例外。&lt;br&gt;来看看swift其中一个令人沸腾的特性之一，定义 运算符。（很多语言早已经有了这个特性）。&lt;/p&gt;
+&lt;p&gt;我们自定义运算符，尽量避免已有运算符： * + - &amp;amp; | ~ 等等。&lt;/p&gt;
+&lt;h5 id=&quot;现在Arrow中对运算符的使用：&quot;&gt;&lt;a href=&quot;#现在Arrow中对运算符的使用：&quot; class=&quot;headerlink&quot; title=&quot;现在Arrow中对运算符的使用：&quot;&gt;&lt;/a&gt;现在Arrow中对运算符的使用：&lt;/h5&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;要在swift中创建一个运算符，首先需要声明  &lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;infix operator &amp;lt;-- &amp;#123;infix-operator-attributes­o&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;//infix-operator-attributes­o 可选&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;infix&lt;/strong&gt;  中缀。有左、右参数&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;operator&lt;/strong&gt;  保留字。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&amp;lt;—&lt;/strong&gt; 操作符本身。  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;{}中可以定义一些运算符的描述。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果这种方式勾起了你的兴趣，咱们在看他的实现。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;现在运算符已经被系统识别，运算符具体实现。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt; public func &amp;lt;-- &amp;lt;T&amp;gt;(inout left: T, right: AnyObject?) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if let v: T = right as? T &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        left = v&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;应该可以看出来和普通的func没什么区别。不过 &lt;strong&gt;inout&lt;/strong&gt;这个是高亮，我就查了下文档。&lt;strong&gt;inout&lt;/strong&gt; 放在参数的前边，表示 left这个参数在scope中可以被修改。 这样我就通过Model的属性的类型T来进行对应的转换，而不用显式的&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;if let id = json[&amp;quot;id&amp;quot;] as? Int &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;来进行判断并赋值。&lt;/p&gt;
+&lt;p&gt;好了，完了。简单的使用就完了，Arrow中还有一些指定类型的重载。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt; public func &amp;lt;-- (inout left: NSDate, right: AnyObject?) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    if let s = right as? String, let date = dateFormater.dateFromString(s)  &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        left = date&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;通过 AnyObject 转换字符串，字符串在转换到 NSDate。延伸后，我们可以根据自己的业务，来把服务器数据进行定制后来赋值。&lt;/p&gt;
+&lt;p&gt;赞！&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;Swift-自定义运算符&quot;&gt;&lt;a href=&quot;#Swift-自定义运算符&quot; class=&quot;headerlink&quot; title=&quot;Swift 自定义运算符&quot;&gt;&lt;/a&gt;Swift 自定义运算符&lt;/h2&gt;&lt;p&gt;网上无意中看到一个开源库  &lt;a href=&quot;https:/
+    
+    </summary>
+    
+    
+      <category term="swift operator,ios,Swift" scheme="http://yoursite.com/tags/swift-operator-ios-Swift/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2016 New Race </title>
+    <link href="http://yoursite.com/2016/02/15/2016-New-Race/"/>
+    <id>http://yoursite.com/2016/02/15/2016-New-Race/</id>
+    <published>2016-02-15T08:45:26.000Z</published>
+    <updated>2016-04-22T04:02:02.000Z</updated>
+    
+    <content type="html">&lt;p&gt;坐在办公室，却发呆坐了一天。新年的开始是酱紫的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;地点： 办公室&lt;br&gt;时间：2016年正月初八&lt;br&gt;新的一年，新的开始，抹掉了之前的种种重新来过，是么？&lt;br&gt;当然不是，我还是2015年的那个我    &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;从朋友公司离职&lt;/li&gt;
+&lt;li&gt;追女孩失败&lt;/li&gt;
+&lt;li&gt;求职阿里失败&lt;/li&gt;
+&lt;li&gt;奔三的路上依旧 惑惑的我&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;手捧杯子喝口热水，还不知道写什么。表达能力一直渣渣，心中的思绪却只能在大脑中轮回一圈后烟消云散，没办法记录在纸上。&lt;br&gt;和志明聊，貌似到了这个年纪，还看不到方向的时候，都是很苦闷的。  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;行动跟不上天马行空的时候，大多只能怪自己。怪自己太懒，怪自己太笨，怪自己不敢拼，怪自己拼不起。。。    &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;事业篇&quot;&gt;&lt;a href=&quot;#事业篇&quot; class=&quot;headerlink&quot; title=&quot;事业篇&quot;&gt;&lt;/a&gt;事业篇&lt;/h4&gt;&lt;p&gt;前半年在朋友的创业公司，最后也是闹得不欢而选择离职。  也总结下问题吧，离职后，跳出原来的圈子看下之前的问题。&lt;br&gt;&lt;strong&gt;故事的背景是：&lt;/strong&gt;创始人包括合伙人都是之前老东家公司的人，所以后期公司扩张时，喊我加入公司。  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;当时我在一家还不错的外企，全球500强，很多北京本地人托关系也要进去。说到这家外企，不得提下 v2ex 网站的作者 Livid 。我们也算同事啦，好吧，自己给自己贴金了。    &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;因为在外企待了一年多，也算对公司有了自己的了解。固定的升职空间，微微复杂的人际关系，让我不想再安逸的待下去。 而创业公司所具有的是 。。。『充满想象』。&lt;br&gt;这个词在我这是贬义词。也是进了创业公司才有的体会。   现在回想在创业公司的日子，印象最深的是  加班！加班！嗯，办公环境简陋！&lt;br&gt;从刚开始居民楼里的二居室，到后来中关村最便宜的写字楼。。。&lt;br&gt;前半年，每天基本都是晚上11点左右回去，第二天到公司十点，基本醒着的时间都在想工作的事情，因为要一个月出一个App。这是我在外包公司时的速度。&lt;br&gt;熬了两个App诞生 。 第二个app是公司转型后的产品，当时也是一个月做出来的。   中间还出现过一个版本号错误，被营销部门的小头头要求请吃饭，然后带去了他们部门的所有人。能再屌丝点么  ，先不说一个月完成app的质量，让程序员被这个责任，还带去你们部门所有人。。。&lt;br&gt;写的很乱，我知道  。&lt;br&gt;咳咳。。还是说说离职的问题吧，然后是事业篇就翻过了。&lt;/p&gt;
+&lt;h5 id=&quot;自身问题&quot;&gt;&lt;a href=&quot;#自身问题&quot; class=&quot;headerlink&quot; title=&quot;自身问题&quot;&gt;&lt;/a&gt;自身问题&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;觉得公司亏待自己，也觉得自己从开始到现在，不是功劳也有苦劳，不知不觉得就想着公司应该对自己更好的待遇，内心不平衡&lt;/li&gt;
+&lt;li&gt;把负面情绪扩散，导致负面情绪放大&lt;/li&gt;
+&lt;li&gt;没有稳下心态去和领导沟通&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5 id=&quot;公司问题&quot;&gt;&lt;a href=&quot;#公司问题&quot; class=&quot;headerlink&quot; title=&quot;公司问题&quot;&gt;&lt;/a&gt;公司问题&lt;/h5&gt;&lt;ul&gt;
+&lt;li&gt;CEO独裁，喜欢狼性文化。普通员工没有好处的狼性文化叫剥削。独裁还有一个弊端，个人的人格色彩对公司影响太大。公司一个些溜须拍马的人上位比较快。&lt;/li&gt;
+&lt;li&gt;大部分中管层都是合伙人身份，反过来说也对。原来公司的普通员工没有经过培训当管理，或多或少都会有问题，我从第一家公司离职就得出一个结论：不要技术人员直接做管理，大部分不能胜任。&lt;/li&gt;
+&lt;li&gt;转性过快，着急从技术型转到营销型。导致后期技术滞后，无法支撑业务发展。&lt;/li&gt;
+&lt;li&gt;公司干活的人少，说话的人多，担责任的人少。  细细想想把，干活的人去背责任，不用多说估计也能想个大概的后果。其实这个也算是上边那条的原因之一。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;情商高的重要性，我得瑟惯了。慢慢更改中&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;希望来年能进阿里巴巴，换个城市，新的开始  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h4 id=&quot;感情篇&quot;&gt;&lt;a href=&quot;#感情篇&quot; class=&quot;headerlink&quot; title=&quot;感情篇&quot;&gt;&lt;/a&gt;感情篇&lt;/h4&gt;&lt;p&gt;这个我熟，困扰我好久了，写起来应该会快点。&lt;/p&gt;
+&lt;p&gt;2015年的初中同学聚会，知道A同学单身，但是十年没见，看朋友圈的照片，也变得亭亭玉立，也没多想。后来聊天越来越多，也就有了想法，大家都是合法单身，为什么不试试呢。脸皮是练出来的  哈哈。&lt;br&gt;不过见到喜欢的女生，一直都是要不默默关注，要不默默祝福。从不敢行动。&lt;br&gt;从过年聊，到约五一一块出来烧烤，一直挺好。五一回家，准备烧烤的东西，当时还没敢多想。一直觉得希望不大。出门，她家接上她，驱车到后山的水库。看照片已经看不出她当年的模样，不过见到真人的时候，依稀还有些当年的娃娃脸。（^_^）。&lt;br&gt;我和弟弟烤东西，递给她吃，真是吃货本色，来者不拒，我的手艺我是我知道的，自己吃吃还行。委屈你了，哈哈。 最后吃的比我还多。 不能放过机会，我又约去看电影。但是忘了带驾照，有开车跑到高新区的影院电影。晚上吃的是烩面，A说太饱，不点餐了。烩面上来的时候，你想喝汤，你喝汤，我吃面，恋上你的单纯。好久没有这种感觉了，幸福感油然而生。第一次见面就这样结束了。&lt;br&gt;第二次见面，我们一块吃饭，一块看电影。吃的烤肉，你也真好养活，烤着你吃着，烤肉的人看到吃的人那满意的表情应该是很得意的吧，反正我是，尤其我喜欢的。  看电影的时候是 《我的个神》，王宝强配音。 我也慢慢的想办法牵他的手，最后依然用了很low的方法，我对她说，我想牵你的手。。。你妹，我要是女生，我都不会让我自己牵，太low逼了，不过我拉过来的时候她没有拒绝。哈哈，得手了。  然后搂着她，没有然后了。&lt;br&gt;第三次见面是在家后边的高尔夫球场，然后又去送A的弟弟上学，回来的路上拐到政府的后花园说休息，天气暖暖，优美的环境。又跟个SB似的说，我要亲你。SB，哈哈，我还说的好几遍，还记得你说：你老说干嘛。！！然后我就亲了上去，怕有口气，没敢亲太多，就是嘴唇碰了下，接近初吻吧，有点忘了什么感觉了，不知道是不是当时脑充血了，所以忘了。&lt;br&gt;没有第四次了，后来关系就慢慢的断了，一方面是A妈妈一直说不合适，其实都没见过我。我应该还算比较掏老人喜欢，不过个子低是硬伤。然后又是单亲。记得那晚告诉A我是单亲的时候，第二天她说：没事，我们还是在一起吧。 早上起来看到这样的话，眼睛还是酸酸的。&lt;/p&gt;
+&lt;p&gt;不过之后越来越对我反感了，不知道单亲对她的影响有多大。开始没有理由的对我不理不睬，发信息也不回，电话不接。我慌了。心里越来越没底，越来越美安全感，所以更频繁的打电话逼问A，我们到底算什么关系，比的急了，她也就说 还是算了把。 这里划上分号。2015结束了。&lt;/p&gt;
+&lt;p&gt;期间，我和S女认识了两年，一直对我很好，在我追A女的时候跟我表白，我不是花心的人，更不能欺骗S，S是在北京对我最好的人。和S女感情的事，我考虑过，但是每次见面了，感觉总是差点，所以一直也没进一步发展。当时我给拒绝了，后来我失恋的时候，才知道对她伤害有多大，S反过来安慰我。。。东北妹子的坚强，让我汗颜。如果不是A的存在，，也许那天我会考虑的，我知道感情是可以培养的，高中谈恋爱的时候就知道这个道理。感谢S一直对我这么好，有时候和朋友聊天，会让他们帮我参考，他们都是S女比A女好看。。。说我眼瞎。。。好吧，说什么都好，反正我自己也不知道。 我知道看到A的时候我能很安定 ，S的时候我会理智。&lt;br&gt;后边还有两个女孩，也都拒绝了。&lt;/p&gt;
+&lt;p&gt;2016年的过年，A给我发消息，问我：家里人催我了么。&lt;br&gt;我知道我应该还有希望，第二天就约了她，不巧下雨，她不想出门，就去了她家里了，家里没人。她说她在思考我们的关系，让我喜出望外。我内心知道，也许她只是思考或者 病急乱投医。。更或者是备胎。按我的年龄，也许最多也就只能再安静的躺在后备箱当备胎一年，年纪再大，我也得找个车子换上去了，要不就得报废，也就不能继续当你的备胎了。。。我知道的。此处略去几行肉麻的句子。。。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;希望来年能把A拿下吧，三十了，没有强大的内心，我也需要一个心里的港湾。   &lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;坐在办公室，却发呆坐了一天。新年的开始是酱紫的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;地点： 办公室&lt;br&gt;时间：2016年正月初八&lt;br&gt;新的一年，新的开始，抹掉了之前的种种重新来过，是么？&lt;br&gt;当然不是，我还是2015年的那个我    &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+    
+    </summary>
+    
+    
+      <category term="note" scheme="http://yoursite.com/tags/note/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用Swift创建Singleton 的几种方式</title>
+    <link href="http://yoursite.com/2015/12/29/%E7%94%A8Swift%E5%88%9B%E5%BB%BASingleton-%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F/"/>
+    <id>http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/</id>
+    <published>2015-12-29T03:47:01.000Z</published>
+    <updated>2016-04-22T04:02:02.000Z</updated>
+    
+    <content type="html">&lt;p&gt;单例，作为日常中出场率较高的设计模式，还是值得单独一篇文章来列举下常见的创建方式。&lt;/p&gt;
+&lt;p&gt;Objective-C 下，一般是这么创建 单例&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;@interface Persion : NSObject&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@end&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@implementation Persion&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;+ (instancetype)sharedInstance &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    static Persion *sharedInstance = nil;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    static dispatch_once_t onceToken;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    dispatch_once(&amp;amp;onceToken, ^&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        sharedInstance = [[Persion alloc] init];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    return sharedInstance;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;@end&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;在使用单例时，我们需要知道&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;单例是全局唯一。 在程序的生命周期中，不管在何处使用 ，都应该是同一个对象。&lt;/li&gt;
+&lt;li&gt;确保单例的唯一性，需要是初始化方法私有化。这样的话，需要我们重载类的所有初始化方法&lt;/li&gt;
+&lt;li&gt;也因为第一条，在生命周期中只有唯一一个，就意味着我们需要确保单例的线程安全。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;— 不多说，下面列举几种swift 单例的创建方法&lt;/p&gt;
+&lt;h4 id=&quot;先来一段比较丑的创建方式&quot;&gt;&lt;a href=&quot;#先来一段比较丑的创建方式&quot; class=&quot;headerlink&quot; title=&quot;先来一段比较丑的创建方式&quot;&gt;&lt;/a&gt;先来一段比较丑的创建方式&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;class TheOneAndOnlyPerson &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    class var sharedInstance: TheOneAndOnlyPerson &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        struct Static &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            static var onceToken: dispatch_once_t = 0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            static var instance: TheOneAndOnlyPerson? = nil&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        dispatch_once(&amp;amp;Static.onceToken) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            Static.instance = TheOneAndOnlyPerson()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return Static.instance!&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这有点违背了swift的简洁风格了吧~~pass（反正不推荐）&lt;/p&gt;
+&lt;h4 id=&quot;结构体创建方式&quot;&gt;&lt;a href=&quot;#结构体创建方式&quot; class=&quot;headerlink&quot; title=&quot;结构体创建方式&quot;&gt;&lt;/a&gt;结构体创建方式&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;class TheOneAndOnlyPerson &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    class var sharedInstance: TheOneAndOnlyPerson &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        struct Static &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            static let instance = TheOneAndOnlyPerson()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return Static.instance&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;全局创建-方式&quot;&gt;&lt;a href=&quot;#全局创建-方式&quot; class=&quot;headerlink&quot; title=&quot;全局创建 方式&quot;&gt;&lt;/a&gt;全局创建 方式&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;private let sharedPerson = TheOneAndOnlyPerson()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;class TheOneAndOnlyPerson &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    class var sharedInstance: TheOneAndOnlyPerson &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        return sharedPerson&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;一行创建单例-推荐&quot;&gt;&lt;a href=&quot;#一行创建单例-推荐&quot; class=&quot;headerlink&quot; title=&quot;一行创建单例 (推荐)&quot;&gt;&lt;/a&gt;一行创建单例 (推荐)&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;class TheOneAndOnlyPerson &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    static let sharedInstance = TheOneAndOnlyPerson()&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不要忘了重载类的初始化方法&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;单例，作为日常中出场率较高的设计模式，还是值得单独一篇文章来列举下常见的创建方式。&lt;/p&gt;
+&lt;p&gt;Objective-C 下，一般是这么创建 单例&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter
+    
+    </summary>
+    
+    
+      <category term="Swift,iOS" scheme="http://yoursite.com/tags/Swift-iOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于微阅读</title>
+    <link href="http://yoursite.com/2015/11/22/%E5%85%B3%E4%BA%8E%E5%BE%AE%E9%98%85%E8%AF%BB/"/>
+    <id>http://yoursite.com/2015/11/22/关于微阅读/</id>
+    <published>2015-11-22T12:18:43.000Z</published>
+    <updated>2016-04-22T04:02:02.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;《微阅读》&quot;&gt;&lt;a href=&quot;#《微阅读》&quot; class=&quot;headerlink&quot; title=&quot;《微阅读》&quot;&gt;&lt;/a&gt;《微阅读》&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt; 数据来源于微信订阅号、公共号，用户在不订阅和关注的情况下，阅读优质文章   。&lt;br&gt;文章按照热度和时间排序，在没有强烈指向性时，为被动阅读提供便利。  &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;特色&quot;&gt;&lt;a href=&quot;#特色&quot; class=&quot;headerlink&quot; title=&quot;特色&quot;&gt;&lt;/a&gt;特色&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;优质内容（来源微信订阅号、公共号）&lt;/li&gt;
+&lt;li&gt;界面简洁、交互简单&lt;/li&gt;
+&lt;li&gt;登录后，收藏的文章保存在服务器端，更换设备不会丢失&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;要求&quot;&gt;&lt;a href=&quot;#要求&quot; class=&quot;headerlink&quot; title=&quot;要求&quot;&gt;&lt;/a&gt;要求&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;先有一台iOS的设备（iPad，iPhone）&lt;/li&gt;
+&lt;li&gt;支持iOS8以上设备&lt;/li&gt;
+&lt;li&gt;由于制作仓促，还有很多不完善的地方，so…帮忙多提意见。谢！&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;遗留和已发现问题&quot;&gt;&lt;a href=&quot;#遗留和已发现问题&quot; class=&quot;headerlink&quot; title=&quot;遗留和已发现问题&quot;&gt;&lt;/a&gt;遗留和已发现问题&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;页码跳转&lt;/li&gt;
+&lt;li&gt;首页网络失败后 重新刷新 （暂无）&lt;/li&gt;
+&lt;li&gt;去除html 无关元素，优化阅读环境&lt;/li&gt;
+&lt;li&gt;因为 服务器SDK的问题，暂时去除 用户系统，无法提供和用户相关的功能（登录、收藏等）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;下版本更新功能&quot;&gt;&lt;a href=&quot;#下版本更新功能&quot; class=&quot;headerlink&quot; title=&quot;下版本更新功能&quot;&gt;&lt;/a&gt;下版本更新功能&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;首页背景图&lt;ul&gt;
+&lt;li&gt;图来源于bing 每日美图，所以会加入保存背景图到本地&lt;/li&gt;
+&lt;li&gt;从相册选择图片做背景图，提供部分定制话  &lt;/li&gt;
+&lt;li&gt;主题色调 自定义&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;文章的已读状态，现版本只能记录当次打开程序时，已阅读的文章。&lt;/li&gt;
+&lt;li&gt;UI 还有很多地方需要改善。本人程序员出身，不要报太大希望我能把UI改的多好多好 O(∩_∩)O~~&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt; 重要的话说好几遍。如果大家有什么建议的话，请发邮件到&lt;br&gt; &lt;code&gt;huang1988519@126.com&lt;/code&gt; ,&lt;br&gt; 如果看到的话会及时反馈的。谢谢大家&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;《微阅读》&quot;&gt;&lt;a href=&quot;#《微阅读》&quot; class=&quot;headerlink&quot; title=&quot;《微阅读》&quot;&gt;&lt;/a&gt;《微阅读》&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt; 数据来源于微信订阅号、公共号，用户在不订阅和关注的情况下，阅读优质文章   。&lt;br&gt;文
+    
+    </summary>
+    
+    
+      <category term="App" scheme="http://yoursite.com/tags/App/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>读后感</title>
+    <link href="http://yoursite.com/2015/11/06/%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
+    <id>http://yoursite.com/2015/11/06/读后感/</id>
+    <published>2015-11-06T03:31:28.000Z</published>
+    <updated>2016-04-22T04:02:02.000Z</updated>
+    
+    <content type="html">&lt;p&gt;日常读后小记，按照我看书的频率，估计也一年也写不了几篇读后感。&lt;br&gt;这些书，或技术、或文学、或营造 等等。自己很少去搜索，一般是别人推荐后，再去查看是否自己也感兴趣。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://book.douban.com/subject/3688489/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;《异类》&lt;/a&gt; – [美] 马尔科姆·格拉德威尔&lt;br&gt;  &lt;strong&gt; 2015-10 ~ 2015-11-5 回龙观地铁End 历时大概1个月  &lt;/strong&gt;&lt;br&gt;  &lt;strong&gt; 北京第一场雪 &lt;/strong&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不一样的成功启示录&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;  从同事手中随便拿到的一本书，这本书不是我的调调。。。但是开卷有益，还是用了一个月给看完了。&lt;br&gt;  作者从一些很常见或者习以为常的现象中，找出名人之所以成名的原因。&lt;br&gt;  &lt;strong&gt; 例如：  &lt;/strong&gt;&lt;br&gt;  运动员为什么大多是 1-3月出生的人&lt;br&gt;  世界级别的首富 多出生于 1960 年（理科生记这种时间有点费劲，仅供参考）&lt;br&gt;  神通为什么最后不一定都会成功&lt;br&gt;  …  &lt;/p&gt;
+&lt;p&gt;  如果大家有感兴趣的，可以自己读一下这本书。屌丝看这本书的时候，会发现也是一种鸡汤 。&lt;br&gt;  基本是从 时代、区域、几代人的家庭背景、宏观、具象 等等来分析一个人的成功。&lt;br&gt;  也许你会发现，你之所以没有成功，除了自己努力之外还有很多是不可抗力在起作用。此处 呵呵 。 我作为一名屌丝，建议大家看完之后，记住，成功还是离不开自身努力的。作者只是在从这个角度在分析问题，但并没有排除自身努力&lt;br&gt;  好吧，不写了，文采有限。自己也消化的不多。 可能之后会分享 一本国内创业者 写的 《增长黑客》营销。&lt;br&gt;  还有google《重新定义公司》。&lt;br&gt;  &lt;strong&gt; 《2015首雪》  &lt;/strong&gt;&lt;br&gt;  &lt;img src=&quot;../../../../img/snow.jpg&quot; alt=&quot;第一场雪&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;日常读后小记，按照我看书的频率，估计也一年也写不了几篇读后感。&lt;br&gt;这些书，或技术、或文学、或营造 等等。自己很少去搜索，一般是别人推荐后，再去查看是否自己也感兴趣。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://book.douban.com/subj
+    
+    </summary>
+    
+    
+      <category term="书" scheme="http://yoursite.com/tags/%E4%B9%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS开源项目收集</title>
+    <link href="http://yoursite.com/2015/11/05/iOS%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E6%94%B6%E9%9B%86/"/>
+    <id>http://yoursite.com/2015/11/05/iOS开源项目收集/</id>
+    <published>2015-11-05T07:08:16.000Z</published>
+    <updated>2016-04-22T04:02:02.000Z</updated>
+    
+    <content type="html">&lt;p&gt;平时自己使用或者看过的iOS代码，收集于此，于己于人方便.&lt;/p&gt;
+&lt;p&gt;项目会先在github 更新，之后迁移到github.io 上  &lt;a href=&quot;https://github.com/huang1988519/Collector&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;github 地址&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; 其他项目总结 &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Tim9Liu9/TimLiu-iOS#%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;TimLiu-iOS&lt;/a&gt; github iOS排行榜&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/superleexpert/open-source-library-tags&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;open-source-library-tags&lt;/a&gt; 佳宾同学自己项目总结&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ipader/SwiftGuide/blob/master/Featured.md&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SwiftGuide&lt;/a&gt; Swift 开源项目精选&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://github.ibireme.com/github/list/ios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Github-iOS备忘 &lt;/a&gt; 分类、折叠查看  开源项目总结&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt; 目录 &lt;/strong&gt;&lt;/p&gt;
+&lt;h2 id=&quot;UI&quot;&gt;&lt;a href=&quot;#UI&quot; class=&quot;headerlink&quot; title=&quot;UI&quot;&gt;&lt;/a&gt;UI&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;下拉刷新&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/CoderMJLee/MJRefresh#%E4%B8%8A%E6%8B%89%E5%88%B7%E6%96%B007-%E8%87%AA%E5%8A%A8%E5%9B%9E%E5%BC%B9%E7%9A%84%E4%B8%8A%E6%8B%8901&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MJRefresh&lt;/a&gt; 国内人开发，由于还没使用过，看文档先列出来几点有点&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;自定义程度高（文字，动图，heade、footer 等等）&lt;/li&gt;
+&lt;li&gt;易使用&lt;/li&gt;
+&lt;li&gt;中文文档，目前已经 4000 多 star&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/samvermette/SVPullToRefresh&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SVPullToRefresh&lt;/a&gt; 应该算本人使用比较早的一个下拉，上拉刷新，api 较少，使用方便&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;音视频播放&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/36Kr-Mobile/KRVideoPlayer&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;KRVideoPlayer&lt;/a&gt;&lt;br&gt;类似Weico的播放器，支持竖屏模式下全屏播放。支持 pod 安装使用&lt;/p&gt;
+  &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pod search KRVideoPlayer&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;  使用MPMoviePlayer进行视频播放，自定义控制层 来控制视频的暂定，播放，前进后退等等&lt;/p&gt;
+&lt;p&gt;  &lt;img src=&quot;https://github.com/36Kr-Mobile/KRVideoPlayer/blob/master/kr_player.gif&quot; alt=&quot;示例图片&quot; title=&quot;示例图片&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;下一个效果&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;图片相关  &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/kean/Nuke&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Nuke (Swift)&lt;/a&gt; 图片 下载、loading、缓存 的一个先进、轻量库&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;模糊效果&lt;/li&gt;
+&lt;li&gt;AutoLayout&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;数据&quot;&gt;&lt;a href=&quot;#数据&quot; class=&quot;headerlink&quot; title=&quot;数据&quot;&gt;&lt;/a&gt;数据&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;数据  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/cobub/razor&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;razor&lt;/a&gt; 开源 统计平台，包含 web , ios ,Android,wp 端代码  &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/evgenyneu/SigmaSwiftStatistics&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;SigmaSwiftStatistics&lt;/a&gt; lauguage: Swift 。 数学复杂计算  &lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/krzyzanowskim/CryptoSwift&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;CryptoSwift&lt;/a&gt; 语言：Swift 。 主流的几种加密&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;require&lt;/p&gt;
+&lt;p&gt;一个好的心情&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;功能&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt; Hash &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MD5&lt;/li&gt;
+&lt;li&gt;SHA1&lt;/li&gt;
+&lt;li&gt;SHA224&lt;/li&gt;
+&lt;li&gt;SHA256&lt;/li&gt;
+&lt;li&gt;SHA384&lt;/li&gt;
+&lt;li&gt;SHA512&lt;/li&gt;
+&lt;li&gt;CRC32 (well, kind of hash)&lt;/li&gt;
+&lt;li&gt;CRC16 (well, kind of hash)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt; Cipher &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;AES-128, AES-192, AES-256&lt;/li&gt;
+&lt;li&gt;ChaCha20&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt; Message authenticators &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Poly1305&lt;/li&gt;
+&lt;li&gt;HMAC MD5, SHA1, SHA256&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt; Cipher block mode &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Electronic codebook (ECB)&lt;/li&gt;
+&lt;li&gt;Cipher-block chaining (CBC)&lt;/li&gt;
+&lt;li&gt;Cipher feedback (CFB)&lt;/li&gt;
+&lt;li&gt;Counter (CTR)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt; Data padding &lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PKCS#7&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;为什么要用swift 再写一次在很多平台都有的功能&lt;/p&gt;
+&lt;p&gt;因为我可以！  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Why? Becanse I can.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;选择器&quot;&gt;&lt;a href=&quot;#选择器&quot; class=&quot;headerlink&quot; title=&quot;选择器&quot;&gt;&lt;/a&gt;选择器&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;时间选择器&lt;/li&gt;
+&lt;li&gt;其他选择器&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/CharlinFeng/CFCityPickerVC&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;城市列表&lt;/a&gt; 带有当前城市，&lt;br&gt;热门城市，和按省分类列表&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;教学&quot;&gt;&lt;a href=&quot;#教学&quot; class=&quot;headerlink&quot; title=&quot;教学&quot;&gt;&lt;/a&gt;教学&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;示例&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/ashfurrow/C-41/tree/82d9359a0210b8722c48816b6914d109a2009bcc&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;C-41&lt;/a&gt;   这个app的功能不重要，重要的是演示了如何使用下边功能&lt;ul&gt;
+&lt;li&gt;Core Data&lt;/li&gt;
+&lt;li&gt;Unit Test&lt;/li&gt;
+&lt;li&gt;ReactiveCocoa&lt;/li&gt;
+&lt;li&gt;Model-View-ViewModel&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/xhzengAIB/MessageDisplayKit&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;MessageDisplayKit&lt;/a&gt;&lt;br&gt;一个类似微信App的IM应用，拥有发送文字、图片、语音、视频、地理位置消息，管理本地通信录、分享朋友圈、漂流交友、摇一摇和更多有趣的功能&lt;br&gt;支持 pod&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pod &amp;apos;MessageDisplayKi&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/xhzengAIB/LearnEnglish/raw/master/Screenshots/MessageDisplayKit.gif&quot; alt=&quot;示例图片&quot; title=&quot;图片&quot;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/geekcompany/ResumeSample&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;程序员简历模板&lt;/a&gt; 程序员简历模板系列。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PHP程序员简历模板&lt;/li&gt;
+&lt;li&gt;iOS程序员简历模板&lt;/li&gt;
+&lt;li&gt;Android程序员简历模板&lt;/li&gt;
+&lt;li&gt;Web前端程序员简历模板&lt;/li&gt;
+&lt;li&gt;Java程序员简历模板&lt;/li&gt;
+&lt;li&gt;C/C++程序员简历模板&lt;/li&gt;
+&lt;li&gt;NodeJS程序员简历模板&lt;/li&gt;
+&lt;li&gt;架构师简历模板&lt;/li&gt;
+&lt;li&gt;通用程序员简历模板&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;总有点别的爱好&quot;&gt;&lt;a href=&quot;#总有点别的爱好&quot; class=&quot;headerlink&quot; title=&quot;总有点别的爱好&quot;&gt;&lt;/a&gt;总有点别的爱好&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;宅男&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/raawaa/jav-scrapy&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;jav-scrapy&lt;/a&gt;&lt;br&gt;一个可以爬取 AV 磁力链接或影片封面的小爬虫。使用Nodejs&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ git clone https://git.coding.net/raawaa/jav-scrapy.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ cd jav-scrapy&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm install # 安装npm包依赖&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;$ npm link    # 使jav-scrapy全局可执行&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;博客&quot;&gt;&lt;a href=&quot;#博客&quot; class=&quot;headerlink&quot; title=&quot;博客&quot;&gt;&lt;/a&gt;博客&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;架构设计&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://casatwy.com/category/blog.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;博客中谈了较多架构层的干货，可以关注下&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://casatwy.com/iosying-yong-jia-gou-tan-kai-pian.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS应用架构谈 开篇&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://casatwy.com/iosying-yong-jia-gou-tan-viewceng-de-zu-zhi-he-diao-yong-fang-an.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS应用架构谈 view层的组织和调用方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://casatwy.com/iosying-yong-jia-gou-tan-wang-luo-ceng-she-ji-fang-an.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS应用架构谈 网络层设计方案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://casatwy.com/iosying-yong-jia-gou-tan-ben-di-chi-jiu-hua-fang-an-ji-dong-tai-bu-shu.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS应用架构谈 本地持久化方案及动态部署&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;http://www.jianshu.com/p/921ab32c3c71&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS大型项目开发漫谈&lt;/a&gt; cp  个人见解总会有很多地方值得  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS 保持界面流畅的技巧&lt;/a&gt;  专业的界面调优，下面简单列几条概要&lt;ul&gt;
+&lt;li&gt;CPU 资源消耗原因和解决方案 （分析）&lt;/li&gt;
+&lt;li&gt;GPU 资源消耗原因和解决方案  （分析）&lt;/li&gt;
+&lt;li&gt;AsyncDisplayKit （解决方案）&lt;/li&gt;
+&lt;li&gt;微博 Demo 性能优化技巧 （示例讲解）  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;干货  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.ibireme.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;伽蓝之堂&lt;/a&gt;&lt;br&gt;干货之多，受益无穷。大量自己实践总结，优秀国际技术翻译引进。&lt;strong&gt;举例：&lt;/strong&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iOS 保持界面流畅的技巧&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.ibireme.com/2015/05/18/runloop/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;深入理解RunLoop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://blog.ibireme.com/2013/08/12/color-model/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;颜色模型&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;平时自己使用或者看过的iOS代码，收集于此，于己于人方便.&lt;/p&gt;
+&lt;p&gt;项目会先在github 更新，之后迁移到github.io 上  &lt;a href=&quot;https://github.com/huang1988519/Collector&quot; target=&quot;_blank&quot;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
