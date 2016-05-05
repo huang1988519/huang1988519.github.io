@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-04-22T04:02:02.000Z</updated>
+  <updated>2016-05-05T05:29:11.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS Gist List</title>
+    <link href="http://yoursite.com/2016/05/05/iOS-Gist-List/"/>
+    <id>http://yoursite.com/2016/05/05/iOS-Gist-List/</id>
+    <published>2016-05-05T13:22:32.000Z</published>
+    <updated>2016-05-05T05:29:11.000Z</updated>
+    
+    <content type="html">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;MacBook Pro 触摸板和鼠标 飘~~&lt;br&gt;&lt;strong&gt;现象: &lt;/strong&gt;&lt;br&gt;magic 和 logitech 、 触摸板 均出现 鼠标飘、卡顿的情况。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;重启电脑， 同时按下 command + Option + R + P ，重置 PRAM 和 NVRAM 。 Fixed！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;MacBook Pro 触摸板和鼠标 飘~~&lt;br&gt;&lt;strong&gt;现象: &lt;/strong&gt;&lt;br&gt;magic 和 logitech 、 触摸板 均出现 鼠标飘、卡顿的情况。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;重启电脑， 同时按下 command 
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>tips</title>
