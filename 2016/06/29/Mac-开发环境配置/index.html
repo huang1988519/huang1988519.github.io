@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="噼啪pipi">
-    <title>用Swift创建Singleton 的几种方式 - 噼啪pipi</title>
+    <title>Mac 开发环境配置 - 噼啪pipi</title>
     <meta name="author" content="iOSer Huang">
     
         <meta name="keywords" content="hexo,ios,xcode,apple,">
@@ -15,19 +15,43 @@
     
         <link rel="alternate" type="application/atom+xml" title="RSS" href="/atom.xml">
     
-    <meta name="description" content="单例，作为日常中出场率较高的设计模式，还是值得单独一篇文章来列举下常见的创建方式。
-Objective-C 下，一般是这么创建 单例12345678910111213141516@interface Persion : NSObject@end@implementation Persion+ (instancetype)sharedInstance &amp;#123;    static Persion">
+    <meta name="description" content="homebrew
+OSX 第三方包管理软件，必装.
+
+安装在 Terminal中 运行 .   需要  OS X 10.5 以上
+1/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;
+
+使用
+常用命令:
+
+brew update  从">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="用Swift创建Singleton 的几种方式">
-<meta property="og:url" content="http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/index.html">
+<meta property="og:title" content="Mac 开发环境配置">
+<meta property="og:url" content="http://yoursite.com/2016/06/29/Mac-开发环境配置/index.html">
 <meta property="og:site_name" content="噼啪pipi">
-<meta property="og:description" content="单例，作为日常中出场率较高的设计模式，还是值得单独一篇文章来列举下常见的创建方式。
-Objective-C 下，一般是这么创建 单例12345678910111213141516@interface Persion : NSObject@end@implementation Persion+ (instancetype)sharedInstance &amp;#123;    static Persion">
-<meta property="og:updated_time" content="2016-04-22T04:02:02.000Z">
+<meta property="og:description" content="homebrew
+OSX 第三方包管理软件，必装.
+
+安装在 Terminal中 运行 .   需要  OS X 10.5 以上
+1/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;
+
+使用
+常用命令:
+
+brew update  从">
+<meta property="og:updated_time" content="2016-06-29T08:00:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用Swift创建Singleton 的几种方式">
-<meta name="twitter:description" content="单例，作为日常中出场率较高的设计模式，还是值得单独一篇文章来列举下常见的创建方式。
-Objective-C 下，一般是这么创建 单例12345678910111213141516@interface Persion : NSObject@end@implementation Persion+ (instancetype)sharedInstance &amp;#123;    static Persion">
+<meta name="twitter:title" content="Mac 开发环境配置">
+<meta name="twitter:description" content="homebrew
+OSX 第三方包管理软件，必装.
+
+安装在 Terminal中 运行 .   需要  OS X 10.5 以上
+1/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;
+
+使用
+常用命令:
+
+brew update  从">
     
     
         
@@ -192,13 +216,13 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            用Swift创建Singleton 的几种方式
+            Mac 开发环境配置
         </h1>
     
     <div class="post-meta">
-    <time itemprop="datePublished" content="Tue Dec 29 2015 19:47:01 GMT+0800">
+    <time itemprop="datePublished" content="Wed Jun 29 2016 22:58:45 GMT+0800">
 	
-		    12月 29, 2015
+		    6月 29, 2016
     	
     </time>
     
@@ -207,23 +231,82 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>单例，作为日常中出场率较高的设计模式，还是值得单独一篇文章来列举下常见的创建方式。</p>
-<p>Objective-C 下，一般是这么创建 单例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@interface Persion : NSObject</span><br><span class="line">@end</span><br><span class="line"></span><br><span class="line">@implementation Persion</span><br><span class="line"></span><br><span class="line">+ (instancetype)sharedInstance &#123;</span><br><span class="line">    static Persion *sharedInstance = nil;</span><br><span class="line">    static dispatch_once_t onceToken;</span><br><span class="line"></span><br><span class="line">    dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">        sharedInstance = [[Persion alloc] init];</span><br><span class="line">    &#125;);</span><br><span class="line">    return sharedInstance;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@end</span><br></pre></td></tr></table></figure></p>
-<p>在使用单例时，我们需要知道</p>
+            <h3 id="homebrew"><a href="#homebrew" class="headerlink" title="homebrew"></a>homebrew</h3><hr>
+<p>OSX 第三方包管理软件，必装.</p>
 <ul>
-<li>单例是全局唯一。 在程序的生命周期中，不管在何处使用 ，都应该是同一个对象。</li>
-<li>确保单例的唯一性，需要是初始化方法私有化。这样的话，需要我们重载类的所有初始化方法</li>
-<li>也因为第一条，在生命周期中只有唯一一个，就意味着我们需要确保单例的线程安全。</li>
+<li><p><strong>安装</strong><br>在 <strong>Terminal</strong>中 运行 .   需要  <strong>OS X 10.5</strong> 以上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>使用</strong></p>
+<p>常用命令:</p>
+<ul>
+<li><strong>brew update</strong>  从git 更新最新 homebrew</li>
+<li><strong>brew upgrade</strong> 更新过期的，或者删除掉得 brews 命令</li>
+<li><strong>brew install</strong> 安装第三方包</li>
+<li><strong>brew search</strong> 搜索自己想要的第三方包</li>
+<li><strong>brew uninstall</strong> 卸载</li>
+<li><strong>brew list</strong> 列举已安装 brews</li>
+<li><a href="https://github.com/Homebrew/brew" target="_blank" rel="external">扩展…</a></li>
 </ul>
-<p>— 不多说，下面列举几种swift 单例的创建方法</p>
-<h4 id="先来一段比较丑的创建方式"><a href="#先来一段比较丑的创建方式" class="headerlink" title="先来一段比较丑的创建方式"></a>先来一段比较丑的创建方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class TheOneAndOnlyPerson &#123;</span><br><span class="line">    class var sharedInstance: TheOneAndOnlyPerson &#123;</span><br><span class="line">        struct Static &#123;</span><br><span class="line">            static var onceToken: dispatch_once_t = 0</span><br><span class="line">            static var instance: TheOneAndOnlyPerson? = nil</span><br><span class="line">        &#125;</span><br><span class="line">        dispatch_once(&amp;Static.onceToken) &#123;</span><br><span class="line">            Static.instance = TheOneAndOnlyPerson()</span><br><span class="line">        &#125;</span><br><span class="line">        return Static.instance!</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这有点违背了swift的简洁风格了吧~~pass（反正不推荐）</p>
-<h4 id="结构体创建方式"><a href="#结构体创建方式" class="headerlink" title="结构体创建方式"></a>结构体创建方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class TheOneAndOnlyPerson &#123;</span><br><span class="line">    class var sharedInstance: TheOneAndOnlyPerson &#123;</span><br><span class="line">        struct Static &#123;</span><br><span class="line">            static let instance = TheOneAndOnlyPerson()</span><br><span class="line">        &#125;</span><br><span class="line">        return Static.instance</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="全局创建-方式"><a href="#全局创建-方式" class="headerlink" title="全局创建 方式"></a>全局创建 方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">private let sharedPerson = TheOneAndOnlyPerson()</span><br><span class="line">class TheOneAndOnlyPerson &#123;</span><br><span class="line">    class var sharedInstance: TheOneAndOnlyPerson &#123;</span><br><span class="line">        return sharedPerson</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="一行创建单例-推荐"><a href="#一行创建单例-推荐" class="headerlink" title="一行创建单例 (推荐)"></a>一行创建单例 (推荐)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class TheOneAndOnlyPerson &#123;</span><br><span class="line">    static let sharedInstance = TheOneAndOnlyPerson()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>不要忘了重载类的初始化方法</p>
-</blockquote>
+</li>
+</ul>
+<h3 id="iTerm2"><a href="#iTerm2" class="headerlink" title="iTerm2"></a>iTerm2</h3><!-- 参考地址 http://www.dreamxu.com/mac-terminal/ -->
+<hr>
+<ul>
+<li><p><strong>安装</strong></p>
+<p>以为之前已经配置过了，暂时不详细介绍了。下载地址 <a href="http://www.iterm2.com/" target="_blank" rel="external">iTerm2</a></p>
+</li>
+<li><p><strong>配色</strong></p>
+<p>好的配色对提高开发效率还是很明显的。网上大部分人推荐的 <a href="http://ethanschoonover.com/solarized" target="_blank" rel="external">Solarized</a> ,个人用的不是这个主题，iTerm的主题有很多，看个人喜好吧。</p>
+</li>
+<li><p><strong>Zsh</strong></p>
+<p>参考<a href="http://www.dreamxu.com/mac-terminal/" target="_blank" rel="external">http://www.dreamxu.com/mac-terminal/</a> 由于Mac自带的也有zsh，不过为了使用最新版的，每次都是先安装 homebrew，然后再装 Zsh,在对Terminal 从 bash 切换到   zsh。</p>
+<p>修改默认 shell</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi  /etc/shells</span><br></pre></td></tr></table></figure>
+<p>在文件末尾添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure>
+<p>这是我修改后的文件内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/bin/bash</span><br><span class="line">/bin/csh</span><br><span class="line">/bin/ksh</span><br><span class="line">/bin/sh</span><br><span class="line">/bin/tcsh</span><br><span class="line">/bin/zsh</span><br></pre></td></tr></table></figure>
+<p>重启iTerm后生效</p>
+</li>
+<li><p><strong>Oh-My-Zsh</strong></p>
+<p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">Oh My Zsh</a> 用来管理 Zsh 配置的. 支持 插件。<br>必装。很多方便的功能就靠它了</p>
+</li>
+<li><p><strong>快捷键</strong></p>
+<ul>
+<li><font color="#CC0066">⌘  + Click </font>  可以打开文件，文件夹和链接</li>
+<li><font color="#CC0066">⌘ + n </font> 新建窗口</li>
+<li><font color="#CC0066">⌘ + t </font>  新建标签页</li>
+<li><font color="#CC0066">⌘ + w </font>  关闭当前页</li>
+<li><font color="#CC0066">⌘ + 数字 &amp; ⌘ + 方向键 </font>  切换标签页</li>
+<li><font color="#CC0066">⌥⌘ + 数字 </font>  切换窗口</li>
+<li><font color="#CC0066">⌘ + enter </font>  切换全屏</li>
+<li><font color="#CC0066">⌘ + d </font>  左右分屏</li>
+<li><font color="#CC0066">⇧⌘ + d </font>  上下分屏</li>
+<li><font color="#CC0066">⌘ + ; </font>  自动补全历史记录</li>
+<li><font color="#CC0066">⇧⌘ + h </font>  自动补全剪贴板历史</li>
+<li><font color="#CC0066">⌥⌘ + e </font>  ：查找所有来定位某个标签页</li>
+<li><font color="#CC0066">⌘ + r &amp; ⌃ + l </font>  清屏</li>
+<li><font color="#CC0066">⌘ + / </font> 显示光标位置( 多屏操作时很有用)</li>
+<li><font color="#CC0066">⌥⌘ + b </font> 历史回放</li>
+<li><font color="#CC0066">⌘ + f </font> 查找，然后用 <strong>tab</strong> 和 <strong>⇧ + tab</strong> 可以向右和向左补全，补全之后的内容会被自动复制， 还可以用 <strong>⌥ + enter</strong> 将查找结果输入终端</li>
+<li><font color="#CC0066">⌃ + u </font> 清空当前行</li>
+<li><font color="#CC0066">⌃ + a </font> 移动到行首</li>
+<li><font color="#CC0066">⌃ + e </font> 移动到行尾</li>
+<li><font color="#CC0066">⌃ + f </font> 向前移动</li>
+<li><font color="#CC0066">⌃ + b </font> 向后移动</li>
+<li><font color="#CC0066">⌃ + p </font> 上一条命令</li>
+<li><font color="#CC0066">⌃ + n </font> 下一条命令</li>
+<li><font color="#CC0066">⌃ + r </font> 搜索历史命令</li>
+<li><font color="#CC0066">⌃ + y </font> 召回最近用命令删除的文字</li>
+<li><font color="#CC0066">⌃ + h </font> 删除光标之前的字符</li>
+<li><font color="#CC0066">⌃ + d </font> 删除光标所指的字符</li>
+<li><font color="#CC0066">⌃ + w </font> 删除光标之前的单词</li>
+<li><font color="#CC0066">⌃ + k </font> 删除从光标到行尾的内容</li>
+<li><font color="#CC0066">⌃ + t </font> 交换光标和之前的字符</li>
+</ul>
+</li>
+</ul>
 
             
         </div>
@@ -233,7 +316,7 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/tags/Swift-iOS/">Swift,iOS</a>
+    <a class="tag tag--primary tag--small t-link" href="/tags/Mac-iOS/">Mac,iOS</a>
 
             </div>
         
@@ -242,7 +325,7 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/16/2016-New-Race/"  data-tooltip="2016 New Race ">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -250,7 +333,7 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/06/读后感/" data-tooltip="读后感">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/05/iOS-Gist-List/" data-tooltip="iOS Gist List">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -265,17 +348,17 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/06/29/Mac-开发环境配置/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/06/29/Mac-开发环境配置/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/06/29/Mac-开发环境配置/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -313,7 +396,7 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/02/16/2016-New-Race/"  data-tooltip="2016 New Race ">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -321,7 +404,7 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2015/11/06/读后感/" data-tooltip="读后感">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2016/05/05/iOS-Gist-List/" data-tooltip="iOS Gist List">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -336,17 +419,17 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/06/29/Mac-开发环境配置/">
                 <i class="fa fa-google-plus"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/06/29/Mac-开发环境配置/">
                 <i class="fa fa-facebook-official"></i>
             </a>
         </li>
         <li class="post-action hide-xs">
-            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/06/29/Mac-开发环境配置/">
                 <i class="fa fa-twitter"></i>
             </a>
         </li>
@@ -366,17 +449,17 @@ Objective-C 下，一般是这么创建 单例12345678910111213141516@interface 
                 <div id="share-options-bar" class="share-options-bar" data-behavior="4">
     <ul class="share-options">
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2016/06/29/Mac-开发环境配置/">
                 <i class="fa fa-google-plus"></i><span class="">Share on Google Plus</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2016/06/29/Mac-开发环境配置/">
                 <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
             </a>
         </li>
         <li class="share-option">
-            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2015/12/29/用Swift创建Singleton-的几种方式/">
+            <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2016/06/29/Mac-开发环境配置/">
                 <i class="fa fa-twitter"></i><span>Share on Twitter</span>
             </a>
         </li>

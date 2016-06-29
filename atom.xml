@@ -5,15 +5,114 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-05-05T05:29:11.000Z</updated>
+  <updated>2016-06-29T08:00:07.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
-    <name>huang1988519</name>
+    <name>iOSer Huang</name>
     
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac 开发环境配置</title>
+    <link href="http://yoursite.com/2016/06/29/Mac-%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2016/06/29/Mac-开发环境配置/</id>
+    <published>2016-06-29T14:58:45.000Z</published>
+    <updated>2016-06-29T08:00:07.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;homebrew&quot;&gt;&lt;a href=&quot;#homebrew&quot; class=&quot;headerlink&quot; title=&quot;homebrew&quot;&gt;&lt;/a&gt;homebrew&lt;/h3&gt;&lt;hr&gt;
+&lt;p&gt;OSX 第三方包管理软件，必装.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;安装&lt;/strong&gt;&lt;br&gt;在 &lt;strong&gt;Terminal&lt;/strong&gt;中 运行 .   需要  &lt;strong&gt;OS X 10.5&lt;/strong&gt; 以上&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;使用&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;常用命令:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;brew update&lt;/strong&gt;  从git 更新最新 homebrew&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;brew upgrade&lt;/strong&gt; 更新过期的，或者删除掉得 brews 命令&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;brew install&lt;/strong&gt; 安装第三方包&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;brew search&lt;/strong&gt; 搜索自己想要的第三方包&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;brew uninstall&lt;/strong&gt; 卸载&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;brew list&lt;/strong&gt; 列举已安装 brews&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/Homebrew/brew&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;扩展…&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;iTerm2&quot;&gt;&lt;a href=&quot;#iTerm2&quot; class=&quot;headerlink&quot; title=&quot;iTerm2&quot;&gt;&lt;/a&gt;iTerm2&lt;/h3&gt;&lt;!-- 参考地址 http://www.dreamxu.com/mac-terminal/ --&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;安装&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;以为之前已经配置过了，暂时不详细介绍了。下载地址 &lt;a href=&quot;http://www.iterm2.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;iTerm2&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;配色&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;好的配色对提高开发效率还是很明显的。网上大部分人推荐的 &lt;a href=&quot;http://ethanschoonover.com/solarized&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Solarized&lt;/a&gt; ,个人用的不是这个主题，iTerm的主题有很多，看个人喜好吧。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Zsh&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;参考&lt;a href=&quot;http://www.dreamxu.com/mac-terminal/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.dreamxu.com/mac-terminal/&lt;/a&gt; 由于Mac自带的也有zsh，不过为了使用最新版的，每次都是先安装 homebrew，然后再装 Zsh,在对Terminal 从 bash 切换到   zsh。&lt;/p&gt;
+&lt;p&gt;修改默认 shell&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo vi  /etc/shells&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在文件末尾添加&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;...&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/bin/zsh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这是我修改后的文件内容&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;/bin/bash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/bin/csh&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/bin/ksh&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/bin/sh&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/bin/tcsh&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;/bin/zsh&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;重启iTerm后生效&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Oh-My-Zsh&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/robbyrussell/oh-my-zsh&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Oh My Zsh&lt;/a&gt; 用来管理 Zsh 配置的. 支持 插件。&lt;br&gt;必装。很多方便的功能就靠它了&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;快捷键&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌘  + Click &lt;/font&gt;  可以打开文件，文件夹和链接&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌘ + n &lt;/font&gt; 新建窗口&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌘ + t &lt;/font&gt;  新建标签页&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌘ + w &lt;/font&gt;  关闭当前页&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌘ + 数字 &amp;amp; ⌘ + 方向键 &lt;/font&gt;  切换标签页&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌥⌘ + 数字 &lt;/font&gt;  切换窗口&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌘ + enter &lt;/font&gt;  切换全屏&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌘ + d &lt;/font&gt;  左右分屏&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⇧⌘ + d &lt;/font&gt;  上下分屏&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌘ + ; &lt;/font&gt;  自动补全历史记录&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⇧⌘ + h &lt;/font&gt;  自动补全剪贴板历史&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌥⌘ + e &lt;/font&gt;  ：查找所有来定位某个标签页&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌘ + r &amp;amp; ⌃ + l &lt;/font&gt;  清屏&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌘ + / &lt;/font&gt; 显示光标位置( 多屏操作时很有用)&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌥⌘ + b &lt;/font&gt; 历史回放&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌘ + f &lt;/font&gt; 查找，然后用 &lt;strong&gt;tab&lt;/strong&gt; 和 &lt;strong&gt;⇧ + tab&lt;/strong&gt; 可以向右和向左补全，补全之后的内容会被自动复制， 还可以用 &lt;strong&gt;⌥ + enter&lt;/strong&gt; 将查找结果输入终端&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌃ + u &lt;/font&gt; 清空当前行&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌃ + a &lt;/font&gt; 移动到行首&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌃ + e &lt;/font&gt; 移动到行尾&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌃ + f &lt;/font&gt; 向前移动&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌃ + b &lt;/font&gt; 向后移动&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌃ + p &lt;/font&gt; 上一条命令&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌃ + n &lt;/font&gt; 下一条命令&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌃ + r &lt;/font&gt; 搜索历史命令&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌃ + y &lt;/font&gt; 召回最近用命令删除的文字&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌃ + h &lt;/font&gt; 删除光标之前的字符&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌃ + d &lt;/font&gt; 删除光标所指的字符&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌃ + w &lt;/font&gt; 删除光标之前的单词&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌃ + k &lt;/font&gt; 删除从光标到行尾的内容&lt;/li&gt;
+&lt;li&gt;&lt;font color=&quot;#CC0066&quot;&gt;⌃ + t &lt;/font&gt; 交换光标和之前的字符&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;homebrew&quot;&gt;&lt;a href=&quot;#homebrew&quot; class=&quot;headerlink&quot; title=&quot;homebrew&quot;&gt;&lt;/a&gt;homebrew&lt;/h3&gt;&lt;hr&gt;
+&lt;p&gt;OSX 第三方包管理软件，必装.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;
+    
+    </summary>
+    
+    
+      <category term="Mac,iOS" scheme="http://yoursite.com/tags/Mac-iOS/"/>
+    
+  </entry>
   
   <entry>
     <title>iOS Gist List</title>
