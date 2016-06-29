@@ -119,12 +119,15 @@
     <link href="http://yoursite.com/2016/05/05/iOS-Gist-List/"/>
     <id>http://yoursite.com/2016/05/05/iOS-Gist-List/</id>
     <published>2016-05-05T13:22:32.000Z</published>
-    <updated>2016-05-05T05:29:11.000Z</updated>
+    <updated>2016-06-29T08:03:57.000Z</updated>
     
     <content type="html">&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;MacBook Pro 触摸板和鼠标 飘~~&lt;br&gt;&lt;strong&gt;现象: &lt;/strong&gt;&lt;br&gt;magic 和 logitech 、 触摸板 均出现 鼠标飘、卡顿的情况。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;重启电脑， 同时按下 command + Option + R + P ，重置 PRAM 和 NVRAM 。 Fixed！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;后来发现是外接显示器转接头的影响，换了一个新的转接头之后再没出现过此现象…囧&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
