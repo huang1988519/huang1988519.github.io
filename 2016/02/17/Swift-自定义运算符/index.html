@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Swift 自定义运算符 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Swift 自定义运算符网上无意中看到一个开源库  Arrow。官方文档  参考 通过重写运算符&amp;lt;–, &amp;lt;==，来解析json。例如：    123identifier &amp;lt;-- json[&quot;id&quot;]name &amp;lt;-- json[&quot;nam">
+<meta name="keywords" content="swift operator,ios,Swift">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift 自定义运算符">
+<meta property="og:url" content="http://yoursite.com/2016/02/17/Swift-自定义运算符/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Swift 自定义运算符网上无意中看到一个开源库  Arrow。官方文档  参考 通过重写运算符&amp;lt;–, &amp;lt;==，来解析json。例如：    123identifier &amp;lt;-- json[&quot;id&quot;]name &amp;lt;-- json[&quot;name&quot;]stats &amp;lt;== json[&quot;stats&quot;] 之前，我们也许是这样的。123456789if let id = json[&quot;id">
+<meta property="og:updated_time" content="2017-11-20T14:17:22.341Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Swift 自定义运算符">
+<meta name="twitter:description" content="Swift 自定义运算符网上无意中看到一个开源库  Arrow。官方文档  参考 通过重写运算符&amp;lt;–, &amp;lt;==，来解析json。例如：    123identifier &amp;lt;-- json[&quot;id&quot;]name &amp;lt;-- json[&quot;name&quot;]stats &amp;lt;== json[&quot;stats&quot;] 之前，我们也许是这样的。123456789if let id = json[&quot;id">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Swift-自定义运算符" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/17/Swift-自定义运算符/" class="article-date">
+  <time datetime="2016-02-17T08:36:24.000Z" itemprop="datePublished">2016-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Swift 自定义运算符
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Swift-自定义运算符"><a href="#Swift-自定义运算符" class="headerlink" title="Swift 自定义运算符"></a>Swift 自定义运算符</h2><p>网上无意中看到一个开源库  <a href="https://github.com/s4cha/Arrow" target="_blank" rel="noopener">Arrow</a>。<br><a href="https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/AdvancedOperators.html" target="_blank" rel="noopener">官方文档</a>  <a href="http://nshipster.com/swift-operators/" target="_blank" rel="noopener">参考</a></p>
+<p>通过重写运算符&lt;–, &lt;==，来解析json。例如：   </p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">identifier &lt;-- json[<span class="string">"id"</span>]</span><br><span class="line">name &lt;-- json[<span class="string">"name"</span>]</span><br><span class="line">stats &lt;== json[<span class="string">"stats"</span>]</span><br></pre></td></tr></table></figure>
+<p>之前，我们也许是这样的。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> id = json[<span class="string">"id"</span>] <span class="keyword">as</span>? <span class="type">Int</span> &#123;</span><br><span class="line">  identifier = id</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> n = json[<span class="string">"name"</span>] <span class="keyword">as</span>? <span class="type">String</span> &#123;</span><br><span class="line">  name = n</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> <span class="keyword">let</span> s = <span class="type">Stats</span>(json:json) &#123;</span><br><span class="line">  stats = s</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Swift 的到来，引起了iOS圈内新一轮热潮，据说国外80%的项目已经再用swift写，而个人对国内的了解，很多大的公司还是很保守。BAT也不例外。<br>来看看swift其中一个令人沸腾的特性之一，定义 运算符。（很多语言早已经有了这个特性）。</p>
+<p>我们自定义运算符，尽量避免已有运算符： * + - &amp; | ~ 等等。</p>
+<h5 id="现在Arrow中对运算符的使用："><a href="#现在Arrow中对运算符的使用：" class="headerlink" title="现在Arrow中对运算符的使用："></a>现在Arrow中对运算符的使用：</h5><ol>
+<li><p>要在swift中创建一个运算符，首先需要声明  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">infix operator &lt;-- &#123;infix-operator-attributes­o&#125;</span><br><span class="line">//infix-operator-attributes­o 可选</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>infix</strong>  中缀。有左、右参数</li>
+<li><strong>operator</strong>  保留字。</li>
+<li><strong>&lt;—</strong> 操作符本身。  </li>
+</ul>
+<blockquote>
+<p>{}中可以定义一些运算符的描述。</p>
+</blockquote>
+<p>如果这种方式勾起了你的兴趣，咱们在看他的实现。</p>
+</li>
+<li><p>现在运算符已经被系统识别，运算符具体实现。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> public func &lt;-- &lt;T&gt;(inout left: T, right: AnyObject?) &#123;</span><br><span class="line">    if let v: T = right as? T &#123;</span><br><span class="line">        left = v</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>应该可以看出来和普通的func没什么区别。不过 <strong>inout</strong>这个是高亮，我就查了下文档。<strong>inout</strong> 放在参数的前边，表示 left这个参数在scope中可以被修改。 这样我就通过Model的属性的类型T来进行对应的转换，而不用显式的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">if let id = json[&quot;id&quot;] as? Int &#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>来进行判断并赋值。</p>
+<p>好了，完了。简单的使用就完了，Arrow中还有一些指定类型的重载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> public func &lt;-- (inout left: NSDate, right: AnyObject?) &#123;</span><br><span class="line">    if let s = right as? String, let date = dateFormater.dateFromString(s)  &#123;</span><br><span class="line">        left = date</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>通过 AnyObject 转换字符串，字符串在转换到 NSDate。延伸后，我们可以根据自己的业务，来把服务器数据进行定制后来赋值。</p>
+<p>赞！</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2016/02/17/Swift-自定义运算符/" data-id="cja8blasl0002cwxgu29fcyfb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift-operator-ios-Swift/">swift operator,ios,Swift</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/02/19/tips/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          tips
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/02/15/2016-New-Race/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2016 New Race </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/App/">App</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift-iOS/">Swift,iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift-operator-ios-Swift/">swift operator,ios,Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书/">书</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/App/" style="font-size: 10px;">App</a> <a href="/tags/Swift-iOS/" style="font-size: 10px;">Swift,iOS</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/swift-operator-ios-Swift/" style="font-size: 10px;">swift operator,ios,Swift</a> <a href="/tags/书/" style="font-size: 10px;">书</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">December 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">November 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/02/19/tips/">tips</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/17/Swift-自定义运算符/">Swift 自定义运算符</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/15/2016-New-Race/">2016 New Race </a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/用Swift创建Singleton-的几种方式/">用Swift创建Singleton 的几种方式</a>
+          </li>
+        
+          <li>
+            <a href="/2015/11/22/关于微阅读/">关于微阅读</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
