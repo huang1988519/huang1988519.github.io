@@ -3,21 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Swift 自定义运算符 | Hexo</title>
+  <title>Swift 自定义运算符 | 拾码</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Swift 自定义运算符网上无意中看到一个开源库  Arrow。官方文档  参考 通过重写运算符&amp;lt;–, &amp;lt;==，来解析json。例如：    123identifier &amp;lt;-- json[&quot;id&quot;]name &amp;lt;-- json[&quot;nam">
 <meta name="keywords" content="swift operator,ios,Swift">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Swift 自定义运算符">
-<meta property="og:url" content="http://yoursite.com/2016/02/17/Swift-自定义运算符/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="bookclub.tech/2016/02/17/Swift-自定义运算符/index.html">
+<meta property="og:site_name" content="拾码">
 <meta property="og:description" content="Swift 自定义运算符网上无意中看到一个开源库  Arrow。官方文档  参考 通过重写运算符&amp;lt;–, &amp;lt;==，来解析json。例如：    123identifier &amp;lt;-- json[&quot;id&quot;]name &amp;lt;-- json[&quot;name&quot;]stats &amp;lt;== json[&quot;stats&quot;] 之前，我们也许是这样的。123456789if let id = json[&quot;id">
-<meta property="og:updated_time" content="2017-11-20T14:17:22.341Z">
+<meta property="og:locale" content="zh-c">
+<meta property="og:updated_time" content="2017-11-20T15:09:25.988Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Swift 自定义运算符">
 <meta name="twitter:description" content="Swift 自定义运算符网上无意中看到一个开源库  Arrow。官方文档  参考 通过重写运算符&amp;lt;–, &amp;lt;==，来解析json。例如：    123identifier &amp;lt;-- json[&quot;id&quot;]name &amp;lt;-- json[&quot;name&quot;]stats &amp;lt;== json[&quot;stats&quot;] 之前，我们也许是这样的。123456789if let id = json[&quot;id">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="拾码" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -38,8 +39,12 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
+        <a href="/" id="logo">拾码</a>
       </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">ios开发，欢迎合作</a>
+        </h2>
       
     </div>
     <div id="header-inner" class="inner">
@@ -53,12 +58,12 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="bookclub.tech"></form>
       </div>
     </div>
   </div>
@@ -120,7 +125,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/02/17/Swift-自定义运算符/" data-id="cja8blasl0002cwxgu29fcyfb" class="article-share-link">Share</a>
+      <a data-url="bookclub.tech/2016/02/17/Swift-自定义运算符/" data-id="cja8c0jk00003bvxgnc20lhq3" class="article-share-link">Partager</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/swift-operator-ios-Swift/">swift operator,ios,Swift</a></li></ul>
@@ -132,7 +137,7 @@
 <nav id="article-nav">
   
     <a href="/2016/02/19/tips/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">Récent</strong>
       <div class="article-nav-title">
         
           tips
@@ -142,7 +147,7 @@
   
   
     <a href="/2016/02/15/2016-New-Race/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">2016 New Race </div>
     </a>
   
@@ -160,7 +165,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">Mot-clés</h3>
     <div class="widget">
       <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/App/">App</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Swift-iOS/">Swift,iOS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/note/">note</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/swift-operator-ios-Swift/">swift operator,ios,Swift</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/书/">书</a></li></ul>
     </div>
@@ -170,7 +175,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">Nuage de mot-clés</h3>
     <div class="widget tagcloud">
       <a href="/tags/App/" style="font-size: 10px;">App</a> <a href="/tags/Swift-iOS/" style="font-size: 10px;">Swift,iOS</a> <a href="/tags/note/" style="font-size: 10px;">note</a> <a href="/tags/swift-operator-ios-Swift/" style="font-size: 10px;">swift operator,ios,Swift</a> <a href="/tags/书/" style="font-size: 10px;">书</a>
     </div>
@@ -189,7 +194,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -225,8 +230,8 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      &copy; 2017 wally.h<br>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
