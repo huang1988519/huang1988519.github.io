@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-c">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="iOS开源项目收集"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="拾码">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="bookclub.tech/2015/11/05/iOS开源项目收集/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> iOS开源项目收集 - 拾码 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">拾码</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">拾码</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          iOS开源项目收集
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-11-05
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#UI"><span class="toc-text">UI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据"><span class="toc-text">数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#选择器"><span class="toc-text">选择器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#教学"><span class="toc-text">教学</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#总有点别的爱好"><span class="toc-text">总有点别的爱好</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#博客"><span class="toc-text">博客</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>平时自己使用或者看过的iOS代码，收集于此，于己于人方便.</p>
+<p>项目会先在github 更新，之后迁移到github.io 上  <a href="https://github.com/huang1988519/Collector" target="_blank" rel="noopener">github 地址</a></p>
+<p><strong> 其他项目总结 </strong></p>
+<ul>
+<li><a href="https://github.com/Tim9Liu9/TimLiu-iOS#%E4%B8%8B%E6%8B%89%E5%88%B7%E6%96%B0" target="_blank" rel="noopener">TimLiu-iOS</a> github iOS排行榜</li>
+<li><a href="https://github.com/superleexpert/open-source-library-tags" target="_blank" rel="noopener">open-source-library-tags</a> 佳宾同学自己项目总结</li>
+<li><a href="https://github.com/ipader/SwiftGuide/blob/master/Featured.md" target="_blank" rel="noopener">SwiftGuide</a> Swift 开源项目精选</li>
+<li><a href="http://github.ibireme.com/github/list/ios/" target="_blank" rel="noopener">Github-iOS备忘 </a> 分类、折叠查看  开源项目总结</li>
+</ul>
+<p><strong> 目录 </strong></p>
+<h2 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h2><ul>
+<li><p>下拉刷新</p>
+<ul>
+<li><p><a href="https://github.com/CoderMJLee/MJRefresh#%E4%B8%8A%E6%8B%89%E5%88%B7%E6%96%B007-%E8%87%AA%E5%8A%A8%E5%9B%9E%E5%BC%B9%E7%9A%84%E4%B8%8A%E6%8B%8901" target="_blank" rel="noopener">MJRefresh</a> 国内人开发，由于还没使用过，看文档先列出来几点有点</p>
+<ul>
+<li>自定义程度高（文字，动图，heade、footer 等等）</li>
+<li>易使用</li>
+<li>中文文档，目前已经 4000 多 star</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/samvermette/SVPullToRefresh" target="_blank" rel="noopener">SVPullToRefresh</a> 应该算本人使用比较早的一个下拉，上拉刷新，api 较少，使用方便</p>
+</li>
+</ul>
+</li>
+<li><p>音视频播放</p>
+<ul>
+<li><p><a href="https://github.com/36Kr-Mobile/KRVideoPlayer" target="_blank" rel="noopener">KRVideoPlayer</a><br>类似Weico的播放器，支持竖屏模式下全屏播放。支持 pod 安装使用</p>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod search KRVideoPlayer</span><br></pre></td></tr></table></figure>
+<p>  使用MPMoviePlayer进行视频播放，自定义控制层 来控制视频的暂定，播放，前进后退等等</p>
+<p>  <img src="https://github.com/36Kr-Mobile/KRVideoPlayer/blob/master/kr_player.gif" alt="示例图片" title="示例图片"></p>
+</li>
+<li>下一个效果</li>
+</ul>
+</li>
+<li>图片相关  <ul>
+<li><a href="https://github.com/kean/Nuke" target="_blank" rel="noopener">Nuke (Swift)</a> 图片 下载、loading、缓存 的一个先进、轻量库</li>
+</ul>
+</li>
+<li>模糊效果</li>
+<li>AutoLayout</li>
+</ul>
+<h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><ul>
+<li><p>数据  </p>
+<ul>
+<li><a href="https://github.com/cobub/razor" target="_blank" rel="noopener">razor</a> 开源 统计平台，包含 web , ios ,Android,wp 端代码  </li>
+<li><a href="https://github.com/evgenyneu/SigmaSwiftStatistics" target="_blank" rel="noopener">SigmaSwiftStatistics</a> lauguage: Swift 。 数学复杂计算  </li>
+<li><p><a href="https://github.com/krzyzanowskim/CryptoSwift" target="_blank" rel="noopener">CryptoSwift</a> 语言：Swift 。 主流的几种加密</p>
+<ul>
+<li><p>require</p>
+<p>一个好的心情</p>
+</li>
+<li><p>功能</p>
+<p><strong> Hash </strong></p>
+<ul>
+<li>MD5</li>
+<li>SHA1</li>
+<li>SHA224</li>
+<li>SHA256</li>
+<li>SHA384</li>
+<li>SHA512</li>
+<li>CRC32 (well, kind of hash)</li>
+<li>CRC16 (well, kind of hash)</li>
+</ul>
+<p><strong> Cipher </strong></p>
+<ul>
+<li>AES-128, AES-192, AES-256</li>
+<li>ChaCha20</li>
+</ul>
+<p><strong> Message authenticators </strong></p>
+<ul>
+<li>Poly1305</li>
+<li>HMAC MD5, SHA1, SHA256</li>
+</ul>
+<p><strong> Cipher block mode </strong></p>
+<ul>
+<li>Electronic codebook (ECB)</li>
+<li>Cipher-block chaining (CBC)</li>
+<li>Cipher feedback (CFB)</li>
+<li>Counter (CTR)</li>
+</ul>
+<p><strong> Data padding </strong></p>
+<ul>
+<li>PKCS#7</li>
+</ul>
+</li>
+<li><p>为什么要用swift 再写一次在很多平台都有的功能</p>
+<p>因为我可以！  </p>
+<blockquote>
+<p>Why? Becanse I can.</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><ul>
+<li>时间选择器</li>
+<li>其他选择器<ul>
+<li><a href="https://github.com/CharlinFeng/CFCityPickerVC" target="_blank" rel="noopener">城市列表</a> 带有当前城市，<br>热门城市，和按省分类列表</li>
+</ul>
+</li>
+</ul>
+<h2 id="教学"><a href="#教学" class="headerlink" title="教学"></a>教学</h2><ul>
+<li><p>示例</p>
+<ul>
+<li><a href="https://github.com/ashfurrow/C-41/tree/82d9359a0210b8722c48816b6914d109a2009bcc" target="_blank" rel="noopener">C-41</a>   这个app的功能不重要，重要的是演示了如何使用下边功能<ul>
+<li>Core Data</li>
+<li>Unit Test</li>
+<li>ReactiveCocoa</li>
+<li>Model-View-ViewModel</li>
+</ul>
+</li>
+<li><p><a href="https://github.com/xhzengAIB/MessageDisplayKit" target="_blank" rel="noopener">MessageDisplayKit</a><br>一个类似微信App的IM应用，拥有发送文字、图片、语音、视频、地理位置消息，管理本地通信录、分享朋友圈、漂流交友、摇一摇和更多有趣的功能<br>支持 pod</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pod &apos;MessageDisplayKi</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/xhzengAIB/LearnEnglish/raw/master/Screenshots/MessageDisplayKit.gif" alt="示例图片" title="图片"></p>
+</li>
+<li><p><a href="https://github.com/geekcompany/ResumeSample" target="_blank" rel="noopener">程序员简历模板</a> 程序员简历模板系列。</p>
+<ul>
+<li>PHP程序员简历模板</li>
+<li>iOS程序员简历模板</li>
+<li>Android程序员简历模板</li>
+<li>Web前端程序员简历模板</li>
+<li>Java程序员简历模板</li>
+<li>C/C++程序员简历模板</li>
+<li>NodeJS程序员简历模板</li>
+<li>架构师简历模板</li>
+<li>通用程序员简历模板</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="总有点别的爱好"><a href="#总有点别的爱好" class="headerlink" title="总有点别的爱好"></a>总有点别的爱好</h2><ul>
+<li><p>宅男</p>
+<ul>
+<li><a href="https://github.com/raawaa/jav-scrapy" target="_blank" rel="noopener">jav-scrapy</a><br>一个可以爬取 AV 磁力链接或影片封面的小爬虫。使用Nodejs<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span> git clone https://git.coding.net/raawaa/jav-scrapy.git</span><br><span class="line"><span class="meta">$</span> cd jav-scrapy</span><br><span class="line"><span class="meta">$</span> npm install # 安装npm包依赖</span><br><span class="line"><span class="meta">$</span> npm link    # 使jav-scrapy全局可执行</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h2><ul>
+<li><p>架构设计</p>
+<ul>
+<li><p><a href="http://casatwy.com/category/blog.html" target="_blank" rel="noopener">博客中谈了较多架构层的干货，可以关注下</a></p>
+<ul>
+<li><a href="http://casatwy.com/iosying-yong-jia-gou-tan-kai-pian.html" target="_blank" rel="noopener">iOS应用架构谈 开篇</a></li>
+<li><a href="http://casatwy.com/iosying-yong-jia-gou-tan-viewceng-de-zu-zhi-he-diao-yong-fang-an.html" target="_blank" rel="noopener">iOS应用架构谈 view层的组织和调用方案</a></li>
+<li><a href="http://casatwy.com/iosying-yong-jia-gou-tan-wang-luo-ceng-she-ji-fang-an.html" target="_blank" rel="noopener">iOS应用架构谈 网络层设计方案</a></li>
+<li><a href="http://casatwy.com/iosying-yong-jia-gou-tan-ben-di-chi-jiu-hua-fang-an-ji-dong-tai-bu-shu.html" target="_blank" rel="noopener">iOS应用架构谈 本地持久化方案及动态部署</a></li>
+</ul>
+</li>
+<li><p><a href="http://www.jianshu.com/p/921ab32c3c71" target="_blank" rel="noopener">iOS大型项目开发漫谈</a> cp  个人见解总会有很多地方值得  </p>
+</li>
+<li><a href="http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/" target="_blank" rel="noopener">iOS 保持界面流畅的技巧</a>  专业的界面调优，下面简单列几条概要<ul>
+<li>CPU 资源消耗原因和解决方案 （分析）</li>
+<li>GPU 资源消耗原因和解决方案  （分析）</li>
+<li>AsyncDisplayKit （解决方案）</li>
+<li>微博 Demo 性能优化技巧 （示例讲解）  </li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>干货  </p>
+<ul>
+<li><a href="http://blog.ibireme.com/" target="_blank" rel="noopener">伽蓝之堂</a><br>干货之多，受益无穷。大量自己实践总结，优秀国际技术翻译引进。<strong>举例：</strong><ul>
+<li><a href="http://blog.ibireme.com/2015/11/12/smooth_user_interfaces_for_ios/" target="_blank" rel="noopener">iOS 保持界面流畅的技巧</a></li>
+<li><a href="http://blog.ibireme.com/2015/05/18/runloop/" target="_blank" rel="noopener">深入理解RunLoop</a></li>
+<li><a href="http://blog.ibireme.com/2013/08/12/color-model/" target="_blank" rel="noopener">颜色模型</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="bookclub.tech">wally.h</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="bookclub.tech/2015/11/05/iOS开源项目收集/">bookclub.tech/2015/11/05/iOS开源项目收集/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2015/11/06/读后感/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">读后感</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">wally.h</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>
