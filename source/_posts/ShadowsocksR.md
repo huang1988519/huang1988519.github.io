@@ -6,7 +6,7 @@ tags:
 
 技术一枚，经常需要找梯子。之前用的
 ## 注册搬瓦工
-[传送门](bandwagonhost.com/clientarea.php)
+[传送门](https://www.bandwagonhost.com/clientarea.php)
 
 ## 选择套餐
 这个按需购买就买，只是拿来翻墙搭个简单网站，选个最便宜的就好。当前最便宜的套餐价格为 `$29.99 `USD Annually.且支持 `CN2`线路。
@@ -38,7 +38,7 @@ Try this promo code: BWH1GFWZP
 
 ## ShadowsocksR 客户端下载
 
-[windows客户端](/2017/11/20/ShadowsocksR/ShadowsocksR-4.7.0-win.7z)
+[Windows客户端](/2017/11/20/ShadowsocksR/ShadowsocksR-4.7.0-win.7z)
 
 [Android客户端](/2017/11/20/ShadowsocksR/ssr-3.4.0.6.apk)
 
