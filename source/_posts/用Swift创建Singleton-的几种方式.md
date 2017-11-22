@@ -1,6 +1,6 @@
 title: 用Swift创建Singleton 的几种方式
 date: 2015-12-29 11:47:01
-tags: Swift,iOS
+tags: [Swift],[iOS]
 ---
 
 单例，作为日常中出场率较高的设计模式，还是值得单独一篇文章来列举下常见的创建方式。
