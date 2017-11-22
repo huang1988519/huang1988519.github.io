@@ -2,6 +2,7 @@
 title: ShadowsocksR
 date: 2017-11-20 23:23:44
 tags:
+- SSR
 ---
 
 技术一枚，经常需要找梯子。之前用的
