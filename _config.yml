@@ -99,3 +99,14 @@ live2d:
     show: true
   react:
     opacity: 0.7
+
+# 添加隐藏文章的功能，把文章的tag设置为  hide  即可
+# index2 generator是否包含官方的hexo-generator-index，默认true（包含）
+index2_include_index: true
+index2_generator:
+	per_page: 8
+	order_by: -date # 按发布时间排序
+	include:
+	exclude:
+		- tag hide # 不包含标签为hide的文章
+		# - category hide # 不包含分类为hide的文章
