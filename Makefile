@@ -8,11 +8,12 @@ default:
 	@echo "make safe: hexo --safe，打开安全模式，在插件等不可用时调用"
 update:
 	git stash
+	git checkout hexo
 	git pull
 	git checkout master
 	git pull
 	git checkout hexo
-
+	git stash pop
 server:
 	hexo server
 # 清理hexo 缓存	
